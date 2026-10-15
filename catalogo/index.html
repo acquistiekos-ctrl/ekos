@@ -1,0 +1,454 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Catalogo EKOS Coatings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap">
+<style>
+/* Layout: libro a due pagine A4 (794x1122 px) con sfoglio 3D; pagina singola su schermi stretti; stampa piana A4. */
+:root{
+  --paper:#F7F6F2; --stone:#E7E5DF; --ink:#292D2B; --sage:#788675; --mid:#777A75; --dk:#3a3e43;
+  --stage:#ECEAE4; --ui-fg:#292D2B; --ui-btn:#F7F6F2; --shadow:rgba(41,45,43,.28);
+  --f:"Inter","Inter Display",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--stage:#1c1f1d;--ui-fg:#ecebe6;--ui-btn:#2a2e2b;--shadow:rgba(0,0,0,.6);color-scheme:dark}}
+:root[data-theme="dark"]{--stage:#1c1f1d;--ui-fg:#ecebe6;--ui-btn:#2a2e2b;--shadow:rgba(0,0,0,.6);color-scheme:dark}
+html,body{height:100%}
+body{background:var(--stage);color:var(--ui-fg);font-family:var(--f);margin:0;overflow:hidden}
+*{box-sizing:border-box}
+#app{height:100%;display:flex;flex-direction:column;padding-inline:16px}
+#stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;position:relative}
+#fit{position:relative}
+#scaler{position:absolute;left:0;top:0;transform-origin:0 0}
+#book{position:relative;width:1588px;height:1122px;perspective:3200px;transition:transform .7s cubic-bezier(.5,.1,.2,1)}
+.leaf{position:absolute;left:794px;top:0;width:794px;height:1122px;transform-origin:0 50%;transform-style:preserve-3d;transition:transform .95s cubic-bezier(.45,.05,.25,1)}
+.leaf.flipped{transform:rotateY(-180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;background:var(--paper)}
+.face.back{transform:rotateY(180deg)}
+.face.front::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(41,45,43,.14),rgba(41,45,43,0) 7%)}
+.face.back::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(270deg,rgba(41,45,43,.14),rgba(41,45,43,0) 7%)}
+#book::before{content:"";position:absolute;inset:6px 0 -10px 0;box-shadow:0 30px 60px -10px var(--shadow);pointer-events:none}
+#single{display:none;position:relative}
+#single .pg{position:absolute;left:0;top:0;transform-origin:0 0;box-shadow:0 18px 40px -12px var(--shadow)}
+#bar{display:flex;align-items:center;justify-content:center;gap:14px;padding-block:14px 18px;padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))}
+#bar button{font:500 13px/1 var(--f);letter-spacing:.06em;text-transform:uppercase;color:var(--ui-fg);background:var(--ui-btn);border:0;border-radius:2px;padding:12px 18px;cursor:pointer}
+#bar button:disabled{opacity:.35;cursor:default}
+#bar button:focus-visible,.toc a:focus-visible{outline:2px solid #788675;outline-offset:2px}
+#count{font:400 13px/1 var(--f);letter-spacing:.08em;min-width:130px;text-align:center;font-variant-numeric:tabular-nums}
+#print{display:none}
+
+/* ---------- pagina ---------- */
+.pg{width:794px;height:1122px;background:var(--paper);color:var(--ink);position:relative;overflow:hidden;font-family:var(--f);font-size:12.5px;line-height:1.5;padding:68px 56px 74px;display:flex;flex-direction:column;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pg *{margin:0}
+.pg img{display:block;max-width:none}
+.pg a{color:inherit;text-decoration:none}
+.folio{position:absolute;left:56px;right:56px;bottom:30px;display:flex;justify-content:space-between;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mid)}
+.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);font-weight:500}
+.ttl{font-weight:200;font-size:46px;line-height:1.02;letter-spacing:-.025em;margin-top:10px;text-wrap:balance}
+.lead{margin-top:14px;max-width:560px;font-size:13px;line-height:1.55;color:#4b4f4b;text-wrap:pretty}
+.hd{flex:none}
+.grp{margin-top:18px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);font-weight:500;display:flex;align-items:center;gap:10px;flex:none}
+.grp::before{content:"";width:12px;height:12px;background:var(--sage);display:block}
+.rows{display:flex;flex-direction:column;gap:6px;margin-top:10px;flex:none}
+.pr{display:flex;gap:18px;align-items:stretch;min-height:64px}
+.lgt{width:176px;flex:none;background:var(--stone);display:flex;align-items:center;justify-content:center;padding:8px 14px;overflow:hidden}
+.lgt.dk{background:var(--dk)}
+.lgt img{max-height:46px;max-width:100%;width:auto;height:auto;object-fit:contain}
+.lgt.ph{padding:0;width:230px;background:none;align-self:flex-start}
+.lgt.ph img{width:100%;height:auto;max-height:none;max-width:none}
+.lgt .nmx{font-weight:500;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;text-align:center;line-height:1.25}
+.wmk{font-weight:800;font-size:22px;line-height:1;letter-spacing:.01em;white-space:nowrap}
+.ds{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:3px;padding-block:2px}
+.ds .tp{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mid);font-weight:500}
+.ds p{font-size:11.5px;line-height:1.45;color:#3d413e;text-wrap:pretty}
+.ds .fm{font-size:10.5px;color:var(--mid)}
+.sch{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);font-weight:600;margin-top:1px}
+.sch.off{color:#a3a69f}
+.big .lgt{width:196px}
+.photos{flex:none;margin-top:auto;padding-top:16px;display:flex;flex-direction:column;gap:8px}
+.fr{display:flex;gap:8px;align-items:flex-start}
+.fr figure{position:relative;line-height:0;min-width:0}
+.fr img{width:100%;height:auto}
+.fr figcaption{line-height:1.4}
+.fr figcaption,.pa figcaption{position:absolute;left:0;bottom:0;background:rgba(247,246,242,.92);padding:4px 9px;font-size:9px;letter-spacing:.08em;color:#3d413e}
+.toc{display:flex;flex-direction:column;margin-top:22px}
+.toc a{display:flex;align-items:baseline;gap:18px;padding-block:9px;color:inherit;cursor:pointer}
+.toc a:hover b{color:var(--sage)}
+.toc em{font-style:normal;width:30px;font-size:10.5px;letter-spacing:.14em;color:var(--mid);font-variant-numeric:tabular-nums}
+.toc b{font-weight:300;font-size:23px;letter-spacing:-.015em}
+.toc span{margin-left:auto;font-size:10.5px;color:var(--mid);text-align:right;max-width:250px}
+.mark{font-weight:500;letter-spacing:.34em;text-transform:uppercase}
+
+/* copertina */
+.cov{padding:0;display:block}
+.cov .photo{position:absolute;left:0;top:0;right:0;height:445px;overflow:hidden}
+.cov .photo img{width:100%;height:100%;object-fit:contain}
+.cov .sage{position:absolute;left:56px;top:445px;width:120px;height:14px;background:var(--sage)}
+.cov h1{position:absolute;left:56px;width:600px;top:520px;font-weight:200;font-size:62px;line-height:1.03;letter-spacing:-.03em;text-wrap:balance}
+.cov .cp{position:absolute;left:56px;top:720px;width:470px;font-size:14px;line-height:1.6;color:#4b4f4b}
+.cov .sub{position:absolute;left:56px;bottom:56px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mid);line-height:1.8}
+.cov .lg{position:absolute;right:56px;bottom:50px;height:112px}
+.cov .lg img{height:112px;width:auto}
+/* quarta */
+.bck{padding:0;display:block;background:var(--ink)}
+.bck .tile{position:absolute;left:197px;top:300px;width:400px;height:300px;background:var(--paper);display:flex;align-items:center;justify-content:center}
+.bck .tile img{width:320px;height:auto}
+.bck .web{position:absolute;left:0;right:0;top:650px;text-align:center;color:var(--paper);font-size:18px;font-weight:300;letter-spacing:.12em}
+.bck .bar{position:absolute;left:337px;top:620px;width:120px;height:12px;background:var(--sage)}
+/* blocchi */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:18px;flex:none}
+.cyc{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px;flex:none}
+.cyc div{background:var(--stone);padding:12px 12px 14px;font-size:11px;line-height:1.45}
+.cyc b{display:block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:6px}
+.dt{display:grid;grid-template-columns:150px 1fr;gap:5px 14px;font-size:11px;margin-top:10px}
+.dt dt{color:var(--mid);letter-spacing:.04em}
+.dt dd{margin:0}
+.gran{background:var(--stone);padding:16px 18px 14px;margin-top:14px;flex:none}
+.gran h4{font-weight:500;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid)}
+.gl{display:flex;align-items:center;gap:12px;margin-top:8px}
+.gl b{width:60px;font-weight:500;font-size:12px;letter-spacing:.08em}
+.gl .tr{flex:1;height:10px;background:var(--paper)}
+.gl .tr i{display:block;height:100%;background:var(--sage)}
+.gl span{width:64px;text-align:right;font-size:11px;font-variant-numeric:tabular-nums}
+.ph1{position:relative;overflow:hidden;background:var(--stone)}
+.ph1 img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.pa{position:relative;line-height:0;background:var(--stone)}
+.pa img{width:100%;height:auto}
+.ph1 figcaption{position:absolute;left:0;bottom:0;background:rgba(247,246,242,.92);padding:4px 9px;font-size:9px;letter-spacing:.08em;color:#3d413e}
+/* pitture */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,1fr);gap:9px;margin-top:20px;flex:1;min-height:0}
+.pc{padding:14px;background:var(--stone);display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.pc .lgp{height:46px;display:flex;align-items:center}
+.pc .lgp img{max-height:46px;max-width:100%;width:auto;height:auto}
+.pc .pt{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mid);margin-top:10px;font-weight:500}
+.pc .pd{font-size:11px;line-height:1.45;margin-top:5px;color:#3d413e;flex:1}
+.pc.empty{background:var(--paper);outline:1.5px dashed #c4c2b8;outline-offset:-1.5px;align-items:center;justify-content:center;text-align:center;gap:4px;color:#a3a69f}
+.pc.empty b{font-weight:500;font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.pc.empty span{font-size:10px}
+.pc.intro{background:var(--sage);color:var(--paper);justify-content:flex-end}
+.pc.intro .pn{font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.pc.intro .pd{flex:none;color:var(--paper)}
+/* applicazioni */
+.app{display:flex;flex-direction:column;gap:7px;margin-top:14px;flex:1;min-height:0}
+.ap{display:flex;gap:16px;flex:1;min-height:0}
+.ap .im{width:200px;flex:none;position:relative;overflow:hidden;background:var(--stone)}
+.ap .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.ap .tx{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.ap h3{font-weight:300;font-size:18px;letter-spacing:-.01em}
+.ap p{font-size:11.5px;line-height:1.45;color:#3d413e}
+.ap .pl{display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}
+.ap .pl span{background:var(--stone);padding:3px 8px;font-size:9.5px;letter-spacing:.08em}
+/* progetti */
+.pj{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:8px;margin-top:16px;flex:1;min-height:0}
+/* area tecnica */
+.at{display:grid;grid-template-columns:1fr 1fr;gap:4px 22px;margin-top:6px}
+.at a,.at div{display:flex;justify-content:space-between;gap:10px;background:var(--stone);padding:6px 12px;font-size:11px}
+.at b{font-weight:500}
+.at em{font-style:normal;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);font-weight:600;white-space:nowrap}
+.at .off em{color:#a3a69f}
+/* cementi e quarzi */
+.cqg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 10px;margin-top:20px}
+.cq{display:flex;flex-direction:column;gap:4px}
+.cqi{height:186px;background:var(--stone);display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+.cqi img{height:100%;width:auto;max-width:100%;object-fit:contain}
+.cq b{font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;line-height:1.3}
+.cq p{font-size:11px;line-height:1.45;color:#3d413e}
+.cq .fm{font-size:10.5px;color:var(--mid)}
+/* contatti */
+.ct2{display:flex;flex-direction:column;gap:8px;margin-top:22px}
+.ct2 div{background:var(--stone);padding:14px 20px;display:flex;gap:20px;align-items:baseline}
+.ct2 em{font-style:normal;width:92px;flex:none;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);font-weight:500}
+.ct2 b{font-weight:300;font-size:18px;letter-spacing:-.005em}
+.ct2 small{font-size:11px;color:#4b4f4b}
+.soc{display:flex;gap:10px;align-items:center}
+.soc svg{width:20px;height:20px;flex:none}
+
+/* pagine dense e tabella */
+.pg.dense .rows{gap:4px;margin-top:8px}
+.pg.dense .pr{min-height:50px;gap:14px}
+.pg.dense .lgt{width:150px;padding:5px 10px}
+.pg.dense .lgt img{max-height:34px}
+.pg.dense .lgt.ph{width:112px;padding:0}
+.pg.dense .lgt.ph img{max-height:none}
+.pg.dense .ds p{font-size:10.8px;line-height:1.36}
+.pg.dense .ds{gap:2px}
+.pg.dense .lgt:not(.ph) ~ .ds .tp{display:none}
+.pg.dense .grp{margin-top:12px}
+.mt{width:100%;border-collapse:collapse;margin-top:10px;font-size:11px}
+.mt th,.mt td{padding:6px 10px;text-align:left;background:var(--stone);border-bottom:3px solid var(--paper)}
+.mt th{font-weight:500;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mid)}
+.mt td:first-child{color:var(--mid)}
+/* note e quarta */
+.nl{flex:1;margin-top:20px;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 35px,#d6d3ca 35px,#d6d3ca 36px);background-position:0 0}
+.bk{padding:0;display:block}
+.bk .photo{position:absolute;left:0;top:0;right:0;height:445px;overflow:hidden}
+.bk .photo img{width:100%;height:100%;object-fit:contain}
+.bk .sage{position:absolute;left:56px;top:445px;width:120px;height:14px;background:var(--sage)}
+.bk h1{position:absolute;left:56px;width:600px;top:520px;font-weight:200;font-size:54px;line-height:1.03;letter-spacing:-.03em}
+.bk .cp{position:absolute;left:56px;top:612px;width:440px;font-size:14px;line-height:1.6;color:#4b4f4b}
+.bk .co{position:absolute;left:56px;bottom:50px;display:flex;flex-direction:column;gap:3px;font-size:11px;line-height:1.5;color:#3d413e;letter-spacing:.02em}
+.bk .co b{font-weight:500;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);margin-bottom:4px}
+.bk .co .gap{margin-top:8px}
+.bk .soc2{display:flex;align-items:center;gap:7px}
+.bk .soc2 svg{width:15px;height:15px;flex:none;color:var(--sage)}
+.bk .lg{position:absolute;right:56px;bottom:50px;height:112px}
+.bk .lg img{height:112px;width:auto}
+/* swatch */
+.swg{display:grid;grid-template-columns:repeat(8,1fr);gap:5px 6px;margin-top:6px}
+.sw{font-size:8px;line-height:1.25;color:#3d413e}
+.sw img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:#eceae3}
+.sw b{display:block;font-weight:500;margin-top:2px}.sw span{color:#7a7e77}
+/* drenante */
+.dsrow{display:grid;grid-template-columns:290px 1fr;gap:18px;margin-top:6px;align-items:start}
+.dsrow .pa{margin:0}.dsrow .pa img{width:100%;height:auto;display:block}
+.swg.g4{grid-template-columns:repeat(4,1fr)}
+/* colori microk */
+.colp{flex:1;display:flex;justify-content:center;align-items:flex-start;margin-top:6px}
+.colp img{height:900px;width:auto;display:block}
+@media print{
+  @page{size:A4;margin:0}
+  html,body{height:auto;overflow:visible;background:#fff}
+  #app{display:none}
+  #print{display:block}
+  #print .pg{break-after:page;page-break-after:always;box-shadow:none}
+}
+</style>
+
+<div id="app">
+  <div id="stage"><div id="fit"><div id="scaler"><div id="book"></div><div id="single"></div></div></div></div>
+  <div id="bar">
+    <button id="prev" type="button" aria-label="Pagina precedente">&larr; Indietro</button>
+    <div id="count" aria-live="polite"></div>
+    <button id="next" type="button" aria-label="Pagina successiva">Avanti &rarr;</button>
+  </div>
+</div>
+<div id="print"></div>
+
+<script>
+(function(){
+var SU='https://www.ekoscoatings.it/schede/';
+var DSG=[['ambra', 'Ambra'], ['azzurro', 'Azzurro'], ['blu', 'Blu'], ['ebano', 'Ebano'], ['rosso', 'Rosso'], ['trasparente', 'Trasparente'], ['verde', 'Verde'], ['viola', 'Viola']];var DSP=[['arabescato', 'Arabescato', '2/5 · 5/7'], ['aurora', 'Aurora', '2/4 · 4/7'], ['bardiglio', 'Bardiglio', '2/4 · 4/7'], ['bianco-carrara', 'Bianco Carrara', '2/4 · 4/7'], ['bianco-verona', 'Bianco Verona', '2/4 · 4/7'], ['botticino', 'Botticino', '2/4 · 4/7'], ['brown-royal', 'Brown Royal', '2/4 · 4/7'], ['garda-grey', 'Garda Grey', '2/4 · 4/7'], ['giallo-mori', 'Giallo Mori', '2/4 · 4/7'], ['giallo-siena', 'Giallo Siena', '2/4 · 4/7'], ['grigio-carnico', 'Grigio Carnico', '2/4 · 4/7'], ['grigio-cielo', 'Grigio cielo', '2/4 · 4/7'], ['grigio-platino', 'Grigio platino', '2/4 · 4/7'], ['marrone-mogano', 'Marrone mogano', '2/5 · 5/7'], ['nero-ebano', 'Nero ebano', '2/4 · 4/7'], ['rosa-corallo', 'Rosa corallo', '2/4 · 4/7'], ['rosa-del-garda', 'Rosa del Garda', '2/4 · 4/7'], ['rosso-verona', 'Rosso Verona', '2/4 · 4/7'], ['silver', 'Silver', '2/5 · 5/7'], ['thassos', 'Thassos', '2/4 · 4/7'], ['verde-alpi', 'Verde alpi', '2/5 · 5/7']];
+function sw(l,p,k){return '<div class="sw"><img src="img/ds/'+p+'-'+l[0]+'.jpg" alt=""><b>'+l[1]+'</b>'+(l[2]?'<span>'+l[2]+'</span>':'')+'</div>';}
+function I(f,c){return '<img src="img/'+f+'" alt="" loading="eager"'+(c?' class="'+c+'"':'')+'>';}
+function schl(s){return '';}
+/* o: n nome, lg logo, dk fondo scuro, wm wordmark html, im foto tile, t tipo, d descrizione, f formati, s scheda */
+function pr(o){
+  var tile=o.lg?'<div class="lgt'+(o.dk?' dk':'')+'">'+I(o.lg)+'</div>':o.wm?'<div class="lgt">'+o.wm+'</div>':o.im?'<div class="lgt ph">'+I(o.im)+'</div>':'<div class="lgt"><span class="nmx">'+o.n+'</span></div>';
+  return '<div class="pr'+(o.big?' big':'')+'" style="'+(o.h?'min-height:'+o.h+'px':'')+'">'+tile+'<div class="ds">'+(o.t?'<span class="tp">'+o.n+' · '+o.t+'</span>':'<span class="tp">'+o.n+'</span>')+'<p>'+o.d+'</p>'+(o.f?'<span class="fm">'+o.f+'</span>':'')+schl(o.s)+'</div></div>';
+}
+function head(ey,t,l){return '<div class="hd"><div class="eyebrow">'+ey+'</div><h2 class="ttl">'+t+'</h2>'+(l?'<p class="lead">'+l+'</p>':'')+'</div>';}
+function grp(t){return '<div class="grp">'+t+'</div>';}
+function rows(a){return '<div class="rows">'+a.join('')+'</div>';}
+function fol(n,l){return '<div class="folio"><span>EKOS Coatings</span><span>'+l+'</span><span>'+n+'</span></div>';}
+function pg(cls,inner){return '<section class="pg '+(cls||'')+'">'+inner+'</section>';}
+function figs(rows){return '<div class="photos">'+rows.map(function(r){var it=Array.isArray(r)?r:r.i,w=Array.isArray(r)?100:(r.w||100);return '<div class="fr" style="width:'+w+'%">'+it.map(function(x){return '<figure style="flex:'+AR[x[0]]+' 1 0">'+I(x[0])+(x[1]?'<figcaption>'+x[1]+'</figcaption>':'')+'</figure>';}).join('')+'</div>';}).join('')+'</div>';}
+var WM={
+ mc:'<span class="wmk"><span style="color:#d62a1f">micro</span><span style="color:#8fa600">coat</span></span>',
+ ex:'<span class="wmk" style="color:#3d3f66;font-weight:700;letter-spacing:.02em">E<span style="color:#4a7ae0">X</span>TERNA</span>',
+ ek:'<span class="wmk"><span style="color:#202223">EKO</span><span style="color:#d62a1f">fiX</span> <small style="font-size:.5em">102</small></span>'
+};
+
+/* ---- prodotti riusati in piu pagine ---- */
+var PR={
+ pox2c:{n:'Primer POX 2Chr',lg:'lg_pox2c.png',t:'Primer',d:'Primer bicomponente epossidico per fondi umidi, a rapido indurimento.',f:'Confezioni da 1 e 5 litri'},
+ pox3c:{n:'Primer POX 3C',lg:'lg_pox3c.png',t:'Primer',d:'Primer tricomponente epossicementizio per fondi umidi, per la formazione di barriere al vapore. Indicato dal manuale quando l\'umidità del supporto supera il 4%, su pavimenti interrati, al piano terra e in esterno.',f:'Confezioni da 1 e 5 litri'},
+ pigmk:{n:'Pigmenti coloranti MK',im:'chart_microk.jpg',t:'Pigmenti',d:'Pigmenti coloranti per tingere il Sistema MicroK, in 32 tinte identificate dai codici MK 101-614, aggiunti alla resina (componente B) prima della miscelazione. Conviene ordinare la tinta in un unico lotto.'},
+ pvr10:{n:'PVR10',lg:'ls_pvr10.png',t:'Primer',d:'Promotore di adesione e regolatore di assorbenza per sottofondi assorbenti. Consigliato anche per consolidare i vecchi massetti.',f:'Flacone da 1 litro · Tanica da 5 litri'},
+ pvr10q:{n:'PVR10Q',lg:'ls_pvr10q.png',t:'Primer',d:'Come PVR10, con quarzo: promotore di adesione e regolatore di assorbenza per sottofondi assorbenti.',f:'Taniche da 1 e 5 litri'},
+ p15:{n:'Primer 15Q Grip',lg:'ls_primer15q.png',t:'Primer',d:'Promotore di adesione per sottofondi non assorbenti: marmo, ceramica, cotto, gres, porcellanato, vetro.',f:'Secchi da 0,5 · 1 · 2,5 · 5 kg',s:'primer-15q.pdf'},
+ p14:{n:'Primer 14Q Grip',lg:'lg_primer14q.png',t:'Primer',d:'Promotore di adesione per supporti difficili, non o poco assorbenti, a viscosità ridotta.',f:'Secchi da 0,5 · 1 · 2,5 · 5 kg · secchio da 20 kg'},
+ primo:{n:'Primo QR',lg:'ls_primo.png',t:'Primer',d:'Promotore di adesione riempitivo in pasta, anche per rasare fughe profonde o larghe.',f:'Secchi da 2,5 · 5 · 10 kg'},
+ ekofix:{n:'EKOfiX 102',lg:'lg_ekofix.png',t:'Fissativo',d:'Primer murale acrilico ad alta concentrazione: fissativo per intonaci interni ed esterni, cementizi o a base gesso.',f:'Confezione da 1 litro · resa teorica 8 m² per litro',s:'ekofix-102.pdf'},
+ degrex:{n:'Degrex PRO',lg:'lg_degrex.png',t:'Pulizia',d:'Sgrassatore forte della linea mK, pronto all\'uso, per preparare le superfici prima dell\'applicazione.',f:'Flacone da 1 litro con spruzzino'},
+ acril:{n:'Acril100',lg:'lg_acril100.png',t:'Fissativi e protettivi',d:'Resina acrilica protettiva della linea Eterna: dispersione acquosa anionica di un copolimero acrilico al 46% di solidi.',f:'Flacone da 1 litro · Tanica da 5 litri'},
+ hd:{n:'mK Protective 2K-HD',lg:'lg_mkp.png',t:'Finitura',d:'Finitura all\'acqua bicomponente per interni, per MicroK e Microcoat.',f:'Confezioni da 1,2 kg (1 + 0,2) e 6 kg (5 + 1)',s:'mk-protective-2k-hd.pdf'},
+ mc50:{n:'mK Protective MC-50',lg:'lg_mkpmc.png',t:'Finitura',d:'Finitura poliuretanica alifatica bicomponente per interno ed esterno, trasparente, con filtri UV.',f:'Confezioni da 1,5 kg (1 + 0,5) · 7,5 kg (5 + 2,5) · 15 kg · opaca o lucida',s:'mk-protective-mc-50.pdf'},
+ pu:{n:'mK Protective PU',lg:'lg_mkpu.png',t:'Finitura',d:'Finitura poliuretanica trasparente all\'acqua, bicomponente, non ingiallente, con effetto opaco o lucido.',s:'mk-protective-pu.pdf'},
+ repair:{n:'Epo Repair 2K',lg:'lg_eporepair.png',t:'Riparazioni',d:'Malta bicomponente a base di resina epossidica per sigillare giunti, crepe e irregolarità.',f:'Confezione da 5 kg (componente A) + 1,5 kg'}
+};
+
+var AR={"acril100.jpg": 1.333, "acril100_foto.jpg": 0.391, "cem425.jpg": 0.667, "cem525.jpg": 0.667, "chart.jpg": 0.754, "coat.jpg": 2.23, "cromafug.jpg": 1.703, "cromafug_promo.jpg": 1.499, "degrex.jpg": 1.0, "easysil.jpg": 1.499, "ekofix.jpg": 1.0, "epocoat_info.jpg": 0.969, "eporepair_info.jpg": 1.2, "fam_accessori.jpg": 1.333, "geo.jpg": 0.707, "green.jpg": 1.786, "hero.jpg": 1.786, "hotel.jpg": 1.332, "im_draining.jpg": 2.722, "intermedio.jpg": 1.0, "kitchen.jpg": 1.009, "materia_pres.jpg": 0.983, "niche.jpg": 1.786, "ossidi_info.jpg": 1.094, "pantone.jpg": 1.536, "poliestere.jpg": 1.412, "pool.jpg": 1.138, "pvr10.jpg": 1.333, "resto.jpg": 1.023, "rock.jpg": 0.667, "stairs.jpg": 0.798, "work.jpg": 0.75};
+var P=[];
+/* 1 copertina */
+P.push(pg('cov','<div class="photo">'+I('hero.jpg')+'</div><div class="sage"></div><h1>Materiali e soluzioni per progettare meglio</h1><p class="cp">Dal primer alla finitura: microcemento, resine, pitture e impermeabilizzanti per chi progetta e per chi posa.</p><div class="sub">Catalogo prodotti 2026<br>Microcementi · Resine · Pitture · Impermeabilizzanti</div><div class="lg">'+I('logo.png')+'</div>'));
+/* 2 presentazione */
+P.push(pg('','<div class="hd"><div class="eyebrow">Azienda</div><h2 class="ttl">Una gamma coordinata per le superfici</h2><p class="lead">Ekos srl realizza linee di prodotti per superfici continue e per la protezione degli edifici, con un\'unica regia: dal primer alla finitura, per chi progetta e per chi posa.</p><p class="lead" style="margin-top:10px">EKOS Coatings riunisce linee di prodotto per microcemento, resine, pitture, impermeabilizzanti e preparazione dei supporti, ciascuna con la propria documentazione tecnica. I prodotti sono pensati per lavorare insieme in un ciclo: primer, rivestimento, finitura. L\'ufficio tecnico affianca progettisti e applicatori nella scelta.</p></div>'+
+ '<div class="grp">Le linee</div><div class="rows" style="flex-direction:row;flex-wrap:wrap;gap:6px"><span class="lgt" style="width:auto;padding:8px 14px;font-size:11px;letter-spacing:.1em">Sistema MicroK</span><span class="lgt" style="width:auto;padding:8px 14px;font-size:11px;letter-spacing:.1em">Microcoat</span><span class="lgt" style="width:auto;padding:8px 14px;font-size:11px;letter-spacing:.1em">GeoCrete</span><span class="lgt" style="width:auto;padding:8px 14px;font-size:11px;letter-spacing:.1em">Draining Stone</span><span class="lgt" style="width:auto;padding:8px 14px;font-size:11px;letter-spacing:.1em">Linea Eterna</span><span class="lgt" style="width:auto;padding:8px 14px;font-size:11px;letter-spacing:.1em">Linea mK</span></div>'+
+ figs([[['green.jpg','Bagno in microcemento']],{i:[['niche.jpg','Nicchia e piano lavabo senza giunti · render']],w:58}])+fol(2,'Azienda')));
+/* 3 indice */
+var toc=[['01','Microcemento','Sistema MicroK, primer, componenti A e B, colori (pag. 7), finiture',4],['02','Malte decorative','Microcoat, GeoCrete, Materia',8],['03','Pitture e finiture','Milo, Externa',9],['04','Resine e rivestimenti','Epo Coat, Epo Repair, Metafloor, Trafix, Draining Stone',10],['05','Impermeabilizzanti','Hydroflex, Acryflex, Thermoguard',12],['06','Preparazione dei supporti','Primer, Primer POX, EKOfiX 102, Degrex PRO',13],['07','Trattamento dei supporti','Acril100, finiture mK Protective, Epo Repair',14],['08','Prodotti complementari','Pigmenti, Cromafug, Ceramix, EasySil 2K, resina poliestere',15],['09','Reti, tessuti e protezioni','Reti in fibra di vetro, tessuto in carbonio, cartone e teli di protezione, secchi vuoti',16],['10','Cementi e quarzi','Cementi bianchi e quarzi',17],['','Applicazioni','Soluzioni per ogni ambiente',18],['','Note','Spazio per appunti',19]];
+P.push(pg('',head('Indice','Il catalogo')+'<nav class="toc">'+toc.map(function(t){return '<a data-goto="'+(t[3]-1)+'" tabindex="0" role="link"><em>'+t[0]+'</em><b>'+t[1]+'</b><span>'+t[2]+'<br>pag. '+t[3]+'</span></a>';}).join('')+'</nav>'+fol(3,'Indice')));
+/* 4 sistema microk */
+var g=[['K6',0.01],['K5',0.02],['K4',0.04],['K3',0.08]];
+P.push(pg('',head('Microcemento','Sistema MicroK','Microcemento e resina per superfici continue: pavimenti, pareti, doccia, retrocucina e mobili, con i primer e le finiture del ciclo.')+
+ '<div class="two" style="grid-template-columns:300px 1fr;align-items:stretch"><figure class="pa" style="align-self:flex-start">'+I('kitchen.jpg')+'<figcaption>Cucina esterna realizzata con MicroK</figcaption></figure><div><div class="grp" style="margin-top:0">Descrizione</div><p style="margin-top:8px;font-size:12px;line-height:1.55">Il Sistema MicroK è un ciclo completo per realizzare superfici continue in microcemento: primer, base coating, intermedio e finitura protettiva. Il colore si ottiene aggiungendo i pigmenti alla resina (componente B) prima di miscelarla al microcemento. Conviene ordinare la tinta in un unico lotto per evitare differenze di tono. 32 tinte con codici MK 101-614; disponibili anche le versioni MicroK Black, White e Red.</p><div class="grp" style="margin-top:14px">Destinazioni d\'uso</div><p style="margin-top:8px;font-size:12px">Pavimenti e pareti · Doccia e bagni · Retrocucina e piani · Mobili</p><div class="grp" style="margin-top:14px">Dati tecnici</div><dl class="dt" style="grid-template-columns:110px 1fr"><dt>Condizioni di posa</dt><dd>+8 °C / +30 °C, umidità relativa fino al 75%</dd><dt>Miscela</dt><dd>3 parti di MicroK a 1 parte di PVR, in peso</dd><dt>Calpestio</dt><dd>Leggero dopo 24 ore; prima pulizia dopo 7 giorni</dd></dl></div></div>'+
+ grp('Il ciclo')+'<div class="cyc"><div><b>Primer</b>Una mano, scelta in base al fondo: PVR10 per superfici assorbenti, Primer 15Q per superfici lisce come ceramica o gres.</div><div><b>Microcemento</b>Due mani di MicroK5 con PVR11 o PVR12, miscelati 3 parti a 1 in peso. Carteggiatura dopo almeno 8 ore.</div><div><b>MK Intermedio</b>Una mano prima della finitura, per proteggere meglio il microcemento.</div><div><b>Finitura</b>Due mani di protettivo. All\'esterno se ne consigliano tre.</div></div>'+
+ '<div class="gran"><h4>Granulometria dei base coating, in micron, in scala</h4>'+g.map(function(x){return '<div class="gl"><b>MicroK'+x[0].slice(1)+'</b><div class="tr"><i style="width:'+(x[1]/0.08*100)+'%"></i></div><span>'+String(x[1]).replace('.',',')+' µm</span></div>';}).join('')+'</div>'+
+ '<p style="margin-top:10px;font-size:10px;color:var(--mid)">Schema standard: in base al supporto possono servire mani e prodotti in più.</p>'+
+ '<div style="flex:1"></div>'+fol(4,'Microcemento')));
+/* 5 primer + componente A */
+function kk(n,lg,gm,conf){return {n:n,lg:lg,t:'Componente A',d:'Base coating A del Sistema MicroK, formula tixotropica. Granulometria '+gm+' µm.',f:conf,s:'microk5-componente-a.pdf'};}
+P.push(pg('dense','<div class="hd"><div class="eyebrow">Microcemento</div><h2 class="ttl" style="font-size:36px">Primer e componente A</h2></div>'+
+ grp('Primer')+rows([pr(PR.pvr10),pr(PR.pvr10q),pr(PR.p15),pr(PR.p14),pr(PR.primo),pr(PR.pox2c),pr(PR.pox3c)])+
+ grp('Componente A')+rows([pr(kk('MicroK3','ls_k3.png','0,08','Confezione da 15 kg')),pr(kk('MicroK4','ls_k4.png','0,04','Confezione da 15 kg')),pr(kk('MicroK5','ls_k5.png','0,02','Confezioni da 3 kg e da 15 kg')),pr(kk('MicroK6','ls_k6.png','0,01','Confezioni da 3 kg e da 15 kg'))])+
+ fol(5,'Microcemento')));
+/* 6 componente B, colori, intermedio, finiture */
+function mkc(c,col){return {n:'MicroK '+c,im:'mk_'+col+'.jpg',t:'Sistema MicroK',d:'La versione '+(col==='black'?'nera':col==='white'?'bianca':'rossa')+' del Sistema MicroK: microK5 '+c+' con PVR11 o PVR12 '+c+'. Si applica come il sistema standard, 3 parti di componente A a 1 di componente B in peso.',f:'microK5 '+c+': 3 kg e 15 kg · PVR '+c+': 1 e 5 litri'};}
+P.push(pg('dense','<div class="hd"><div class="eyebrow">Microcemento</div><h2 class="ttl" style="font-size:36px">Componente B, colori, intermedio e finiture</h2></div>'+
+ grp('Componente B')+rows([pr({n:'PVR11',lg:'ls_pvr11.png',t:'Componente B',d:'Componente B: polimero per la miscelazione dei MicroK.',f:'Taniche da 1 e 5 litri · 1 parte di PVR a 3 di MicroK',s:'pvr11.pdf'}),pr({n:'PVR12',lg:'ls_pvr12.png',t:'Componente B',d:'Componente B autolivellante per la miscelazione dei MicroK (PVR12f per superfici orizzontali).',f:'Taniche da 1 e 5 litri · 1 parte di PVR a 3 di MicroK',s:'pvr12f.pdf'})])+
+ grp('Colori')+rows([pr(mkc('Black','black')),pr(mkc('White','white')),pr(mkc('Red','red')),pr(PR.pigmk)])+
+ grp('Intermedio')+rows([pr({n:'MK Intermedio',lg:'lg_mkint.png',t:'Intermedio',d:'Primer regolatore di assorbenza per l\'applicazione di finiture poliuretaniche all\'acqua su pavimenti cementizi e altre superfici. Pronto all\'uso, ricopertura dopo 6-8 ore.',f:'Flacone da 1 litro · Tanica da 5 litri'})])+
+ grp('Finiture')+rows([pr(PR.hd),pr(PR.mc50),pr(PR.pu)])+fol(6,'Microcemento')));
+/* colori MicroK */
+P.push(pg('','<div class="hd"><div class="eyebrow">Microcemento</div><h2 class="ttl" style="font-size:36px">I nostri colori MicroK</h2></div><div class="colp">'+I('colori_microk.jpg')+'</div>'+fol(7,'Microcemento')));
+/* 7 malte decorative */
+P.push(pg('',head('Malte decorative','Malte decorative','Malte per pareti materiche, effetto microcemento ed effetto roccia: Microcoat, GeoCrete e Materia.')+
+ rows([pr({n:'Microcoat',wm:WM.mc,t:'Malte',d:'Rivestimento decorativo in pasta pronto all\'uso, a base di resina acrilica e cariche minerali selezionate: superfici continue a effetto microcemento satinato, moderne e resistenti. Disponibile in tutte le tinte NCS, RAL e Pantone; conviene ordinare la tinta in un unico lotto.',f:'Applicazione a spatola in 1-2 mani · tre versioni: Coat BASE, MEDIO, FINE',s:'microcoat.pdf'}),
+ pr({n:'GeoCrete',lg:'lg_geo.png',dk:1,t:'Malte',d:'Malta tixotropica alleggerita ad alta viscosità per pareti decorative effetto roccia, per interni ed esterni. Composizione alleggerita: spessori elevati in un\'unica passata.',f:'Confezione da 15 kg · da +5 °C a +35 °C'}),
+ pr({n:'Materia',lg:'lg_materia.png',t:'Malte',d:'Malta in pasta. La materia che prende forma.'})])+
+ '<table class="mt"><tr><th>Microcoat</th><th>Coat BASE</th><th>Coat MEDIO</th><th>Coat FINE</th></tr><tr><td>Resa</td><td>0,900 kg/m²</td><td>0,450 kg/m²</td><td>0,250 kg/m²</td></tr><tr><td>Spessore max per strato</td><td>0,8 mm</td><td>0,5 mm</td><td>0,3 mm</td></tr><tr><td>Grana carta vetrata</td><td>40</td><td>120</td><td>220</td></tr><tr><td>Durezza Shore</td><td>55</td><td>48</td><td>43</td></tr><tr><td>Asciugatura tra le mani</td><td colspan="3">4-8 ore</td></tr></table>'+
+ figs([{i:[['pantone.jpg','Microcoat nelle tinte Pantone'],['geo.jpg','GeoCrete'],['rock.jpg','GeoCrete: parete effetto roccia'],['resto.jpg','Parete Microcoat in un ristorante']],w:84},{i:[['materia_pres.jpg','Materia'],['coat.jpg','Cartella colori Microcoat']],w:80}])+fol(8,'Malte decorative')));
+/* 8 pitture: 2 prodotti + 9 spazi */
+var empt='';for(var i=1;i<=9;i++)empt+='<div class="pc empty"><b>Spazio '+i+'</b><span>Logo e descrizione</span></div>';
+P.push(pg('',head('Pitture e finiture','Pitture e finiture','Idropitture e pitture al quarzo per interni ed esterni. Per proteggere e rifinire pareti e facciate.')+
+ '<div class="pgrid"><div class="pc intro"><div class="pn">La gamma</div><div class="pd" style="margin-top:6px">Pitture murali per grandi superfici e per interni. Nuovi prodotti in arrivo.</div></div>'+
+ '<div class="pc"><div class="lgp">'+I('milo.png')+'</div><div class="pt">Pitture murali · Milo</div><div class="pd">Idropittura lavabile per interni ed esterni, professionale.</div>'+schl(null)+'</div>'+
+ '<div class="pc"><div class="lgp">'+WM.ex+'</div><div class="pt">Pitture murali · Externa</div><div class="pd">Pittura minerale al quarzo: idropittura murale superlavabile bianca, opaca e ad alta copertura, per interni ed esterni. Confezione da 14 litri.</div>'+schl('externa.pdf')+'</div>'+empt+'</div>'+fol(9,'Pitture e finiture')));
+/* 9 resine: pavimenti */
+P.push(pg('',head('Resine e rivestimenti','Resine per pavimenti','Resine epossidiche e metacriliche per pavimentazioni industriali e civili, esterni e riparazioni.')+
+ rows([pr({n:'Epo Coat BS 300 2K',lg:'lg_epo.png',t:'Pavimenti',d:'Resina epossidica autolivellante bicomponente per pavimenti industriali e civili, trasparente e colorata, per interni ed esterni. Anche in kit A 500 g + B 300 g: ultra trasparente, lucida, senza solventi, per colate fino a 2 cm.',f:'Componente A da 5 kg · kit A 500 g + B 300 g'}),
+ pr(Object.assign({},PR.repair,{t:'Pavimenti'})),
+ pr({n:'Metafloor',lg:'lg_meta.png',t:'Pavimenti',d:'Resina metacrilica monocomponente trasparente: consolidante, impermeabile, protettiva e anticarbonatante per i supporti cementizi. Non si diluisce, consigliate due mani.',f:'Confezione da 15 litri',s:'metafloor.pdf'}),
+ pr({n:'Trafix',lg:'lg_trafix.png',dk:1,t:'Pavimenti',d:'Vernice metacrilica per segnaletica orizzontale, da applicare su asfalto.'})])+
+ figs([[['epocoat_info.jpg','Epo Coat: componenti e applicazioni'],['eporepair_info.jpg','Epo Repair: prima e dopo']]])+fol(10,'Resine e rivestimenti')));
+/* 10 drenanti + tecniche */
+P.push(pg('','<div class="hd"><div class="eyebrow">Resine e rivestimenti</div><h2 class="ttl" style="font-size:38px">Pavimenti drenanti</h2></div>'+
+ grp('Pavimenti drenanti')+rows([pr({n:'Draining Stone',lg:'lg_draining.png',t:'Pavimenti drenanti',d:'Sistema per pavimentazioni esterne continue in ciottoli legati con resina, in diverse tinte: piscine, piste ciclabili, viali, piazze, balconi, terrazze, cortili e parcheggi. Consumo: 25 kg di graniglia + 800 g di Epox Stone ogni 1-1,2 m²; pedonabile dopo 8-12 ore, carrabile dopo 48-72 ore.',s:'draining-stone.pdf',h:92}),
+ pr({n:'Epox Stone',lg:'lg_epox.png',t:'Pavimenti drenanti',d:'Resina epossidica trasparente bicomponente per la miscela dei massetti drenanti Draining Stone.',f:'Componente A da 5 kg'})])+
+ '<div class="dsrow"><figure class="pa">'+I('pr_piscina.jpg')+'<figcaption>Bordo piscina in ciottoli drenanti antiscivolo</figcaption></figure><div>'+grp('Ciottolini in vetro · 8 tinte')+'<div class="swg g4">'+DSG.map(function(x){return sw(x,'v');}).join('')+'</div></div></div>'+grp('Ciottolini in petra · sacco da 25 kg · granulometrie in mm')+'<div class="swg">'+DSP.map(function(x){return sw(x,'p');}).join('')+'</div>'+fol(11,'Resine e rivestimenti')));
+/* 11 impermeabilizzanti */
+P.push(pg('',head('Impermeabilizzanti','Impermeabilizzanti','Malte e guaine liquide per proteggere le superfici dall\'acqua e dal calore: terrazze, coperture e superfici esposte alle infiltrazioni.')+
+ rows([pr({n:'Hydroflex',lg:'lg_hydro.png',dk:1,t:'Impermeabilizzante',d:'Malta cementizia elastomerica bicomponente con funzione impermeabilizzante. Componente A in polvere (75%) e componente B polimero liquido (25%).',f:'Confezione da 20 kg · da +5 °C a +35 °C',big:1,h:84}),
+ pr({n:'Acryflex',lg:'lg_acry.png',t:'Impermeabilizzante',d:'Guaina acrilica liquida elastomerica monocomponente: membrana impermeabile, flessibile, calpestabile e resistente agli agenti atmosferici. A pennello o a rullo, due mani.',f:'Lattine da 14 litri · grigia o bianca · 400-600 g/m² per mano',big:1,h:84}),
+ pr({n:'Thermoguard',lg:'lg_thermo.png',t:'Impermeabilizzante',d:'Guaina liquida termica ad alta riflettanza: membrana impermeabile, termoisolante, flessibile e calpestabile. Riduce i flussi termici, caldi e freddi.',f:'Lattine da 14 litri',big:1,h:84})])+
+ figs([[['work.jpg','Posa di una pavimentazione all\'aperto'],['hotel.jpg','Corte esterna di una struttura ricettiva']]])+fol(12,'Impermeabilizzanti')));
+/* 12 preparazione */
+P.push(pg('dense',head('Preparazione dei supporti','Preparazione dei supporti','Primer, fissativi e sgrassatori, scelti in base al fondo, assorbente o liscio: il primo passo di ogni ciclo.')+
+ rows([pr(PR.pvr10),pr(PR.pvr10q),pr(PR.p15),pr(PR.p14),pr(PR.primo),pr(PR.pox2c),pr(PR.pox3c),pr(PR.ekofix),pr(PR.degrex)])+
+ figs([{i:[['pvr10.jpg','PVR10'],['ekofix.jpg','EKOfiX 102'],['degrex.jpg','Degrex PRO']],w:88}]).replace('class="photos"','class="photos" style="padding-top:8px"')+fol(13,'Preparazione dei supporti')));
+/* 13 trattamento */
+P.push(pg('',head('Trattamento dei supporti','Trattamento dei supporti','Fissativi, protettivi, sgrassatori, finiture e riparazioni per trattare i supporti prima e dopo l\'applicazione.')+
+ rows([pr(PR.acril),pr(PR.degrex),pr(PR.hd),pr(PR.mc50),pr(PR.pu),pr(PR.repair)])+
+ figs([{i:[['acril100.jpg','Acril100'],['acril100_foto.jpg','Il flacone Acril100 da 1 litro']],w:75}])+fol(14,'Trattamento dei supporti')));
+/* 14 complementari */
+P.push(pg('','<div class="hd"><div class="eyebrow">Prodotti complementari</div><h2 class="ttl" style="font-size:36px">Pigmenti, fughe, stampi e resine</h2></div>'+
+ rows([pr({n:'Ossidi colorati',im:'ossidi_info.jpg',t:'Pigmenti',d:'Pigmenti a base di ossidi per colorare i prodotti, con elevata coprenza e ottima durata, facili da miscelare. 11 colori: bianco (ossido di titanio), giallo, blu, rosso, verde, arancio, nero, grigio, azzurro, tabacco e marrone.',f:'Confezione da 500 g'}),
+ pr(PR.pigmk),
+ pr({n:'Cromafug',im:'cromafug.jpg',t:'Fughe',d:'Malta riempitiva colorata per fughe di piastrelle, bicomponente, disponibile in tutti i colori RAL e NCS. Si miscelano i 3 kg di polvere con 1 kg di polimero liquido fino a ottenere la malta pronta all\'uso.',f:'Kit da 4 kg: 3 kg di polvere + 1 kg di polimero liquido'}),
+ pr({n:'Ceramix',lg:'lg_ceramix.png',t:'Ceramica a freddo',d:'Composito in polvere per ceramica a freddo.'}),
+ pr({n:'EasySil 2K',im:'easysil.jpg',t:'Stampi',d:'Gomma siliconica bicomponente a poliaddizione per stampi di media durezza, 1:1, atossica e facile da usare. Alta resistenza allo strappo, copia anche i dettagli più piccoli. Durezze 10, 20 e 30 Shore A; lavorazione 45 minuti, indurimento 3 ore.',f:'1 kg (500 + 500 g) · 2 kg · 10 kg · 20 kg'}),
+ pr({n:'Resina poliestere per impregnazione',im:'poliestere.jpg',t:'Resine tecniche',d:'Per la realizzazione e la riparazione di manufatti in vetroresina, laminati e materiali compositi. Catalizzatore MEKP all\'1-2%, lavorabilità 15-25 minuti a 20 °C.',f:'Barattolo da 750 g + catalizzatore da 30 g'})])+
+ fol(15,'Prodotti complementari')));
+/* 15 cementi e quarzi */
+function bk(h,w,l){return '<svg viewBox="0 0 100 100" width="'+w+'" height="'+h+'" style="display:block;margin:auto"><path d="M18 28 L82 28 L74 92 Q50 98 26 92 Z" fill="#f1efe9" stroke="#9a9d95" stroke-width="1.6"/><ellipse cx="50" cy="28" rx="32" ry="6" fill="#e4e1d9" stroke="#9a9d95" stroke-width="1.6"/><path d="M20 22 Q50 -6 80 22" fill="none" stroke="#6f736b" stroke-width="2"/><text x="50" y="66" text-anchor="middle" font-family="Inter,Arial" font-size="15" font-weight="500" fill="#4b4f4b">'+l+'</text></svg>';}
+function cq(n,im,d,f){return '<div class="cq"><div class="cqi"><img src="img/'+im+'" alt=""></div><b>'+n+'</b><p>'+d+'</p><span class="fm">'+f+'</span>'+schl(null)+'</div>';}
+/* reti e tessuti */
+P.push(pg('dense','<div class="hd"><div class="eyebrow">Rinforzi e protezioni</div><h2 class="ttl" style="font-size:38px">Reti, tessuti e protezioni</h2><p class="lead">Reti in fibra di vetro e tessuto in fibra di carbonio per armare malte, rasature e compositi; cartone e teli per proteggere pavimenti e superfici in cantiere, secchi vuoti.</p></div>'+
+ grp('Reti in fibra di vetro')+rows([
+ pr({n:'Rete in fibra di vetro 148 g/m²',im:'rete_148.jpg',t:'Reti di rinforzo',d:'Rete apprettata antialcalina per l\'armatura degli intonaci e dei rasanti. Maglia 4,5 × 3,5 mm, copertura 34%, peso 148 g/m² (120 g/m² greggia). Resistenza a trazione: 40 N/mm in ordito e 36 N/mm in trama; marcata CE.',f:'Fibra di vetro 81% · appretto antialcalino 19%'}),
+ pr({n:'Rete in fibra di vetro 103 g/m²',im:'rete_103.jpg',t:'Reti di rinforzo',d:'Rete apprettata antialcalina per l\'armatura di malte a rasare e per l\'accoppiamento a piastrelle con resine viniliche a freddo o a caldo. Maglia circa 6,4 × 6,7 mm, peso 103 g/m². Resistenza a trazione: 1500 N/5 cm in ordito e 1600 N/5 cm in trama.',f:'Altezza 1000 mm · rotolo da 100 m'}),
+ pr({n:'Rete in fibra di vetro 74 g/m²',im:'rete_74.jpg',t:'Reti di rinforzo',d:'Rete apprettata antialcalina per l\'armatura di malte a rasare, di resine poliestere ed epossidiche, per il rinforzo di lastre di marmo e per l\'accoppiamento a piastrelle e mosaici. Maglia circa 4 × 5 mm, peso 74 g/m². Resistenza a trazione: 1300 N/5 cm in ordito e 1000 N/5 cm in trama.',f:'Altezze da 1000 a 2000 mm · rotoli da 100 o 300 m'})])+
+ grp('Tessuti in fibra di carbonio')+rows([
+ pr({n:'Tessuto in fibra di carbonio 200 g/m²',im:'carbonio.jpg',t:'Tessuti di rinforzo',d:'Tessuto in vera fibra di carbonio per il rinforzo di compositi e laminati con resine epossidiche. Peso 200 g/m², filato 3K, armatura twill 2/2.',f:'Su richiesta: altezze e lunghezze'})])+
+ grp('Protezione delle superfici')+rows([pr({n:'Cartone pressato in rotolo',im:'cartone.jpg',t:'Protezioni',d:'Cartone pressato per proteggere pavimenti e superfici durante pitture, posa e lavori di cantiere.',f:'Altezza 100 cm · rotolo da 45 m'}),
+ pr({n:'Telo copritutto 4 × 4 m',im:'telo.jpg',t:'Protezioni',d:'Il telo 4 × 4 m è il classico telo da imbianchino e da cantiere per i piccoli lavori in casa. Leggero e comodo da stendere, copre mobili, suppellettili e arredi durante imbiancature e ristrutturazioni, proteggendoli da polvere e schizzi.',f:'Formato 4 × 4 m'})])+ grp('Contenitori')+rows([pr({n:'Secchio vuoto da 6 litri',wm:bk(52,52,'6 L'),t:'Contenitori',d:'Secchio vuoto in plastica con manico, per miscelare, travasare e conservare pitture, malte e resine.',f:'Capacità 6 litri'}),pr({n:'Secchio vuoto da 19 litri',wm:bk(52,52,'19 L'),t:'Contenitori',d:'Secchio vuoto in plastica con manico, per la miscelazione di malte e resine e per lo stoccaggio dei prodotti in cantiere.',f:'Capacità 19 litri'})])+fol(16,'Reti e protezioni')));
+P.push(pg('','<div class="hd"><div class="eyebrow">Cementi e quarzi</div><h2 class="ttl" style="font-size:38px">Cementi e quarzi</h2><p class="lead">Cementi bianchi e quarzi per microcementi, malte, resine e pavimenti.</p></div>'+
+ '<div class="cqg">'+cq('Cemento bianco 42.5 R','cem425.jpg','CEM II/B-L 42.5 R, cemento bianco ad alta resistenza, ideale per microcementi e malte.','Confezione da 5 kg')+cq('Cemento bianco 52.5 R','cem525.jpg','CEM II/B-L 52.5 R, cemento bianco ad alta resistenza, di qualità professionale.','Confezione da 5 kg')+cq('Quarzo sferico 0,06–0,2 mm','quarzo_006_02.jpg','Sabbia di quarzo sferico a granulometria fine.','Sacco da 25 kg')+cq('Quarzo sferico 0,1–0,3 mm','quarzo_01_03.jpg','Sabbia di quarzo sferico a granulometria media.','Sacco da 25 kg')+cq('Quarzo macinato 0,4–0,8 mm','quarzo_04_08.jpg','Sabbia di quarzo macinato a granulometria grossa.','Sacco da 25 kg')+cq('Quarzo ventilato','quarzo_ventilato.jpg','Sabbia di quarzo ventilato per resine e pavimenti.','Sacco da 20 kg')+'</div>'+
+ figs([{i:[['fam_accessori.jpg','Quarzi in sacchi da 25 e 20 kg']],w:46}])+fol(17,'Cementi e quarzi')));
+/* 16 applicazioni */
+function ap(im,n,t,d,pl){return '<div class="ap"><div class="im">'+I(im)+'</div><div class="tx"><h3>'+n+'</h3><p>'+d+'</p><div class="pl">'+pl.map(function(x){return '<span>'+x+'</span>';}).join('')+'</div></div></div>';}
+P.push(pg('',head('Applicazioni','Soluzioni per ogni ambiente')+'<div class="app">'+
+ ap('green.jpg','Abitazioni e interior design','','Superfici continue per bagni, docce, pavimenti, pareti, piani, retrocucina e mobili, con finiture decorative per pareti materiche.',['Sistema MicroK','Microcoat','GeoCrete','Materia','mK Protective 2K-HD','Milo'])+
+ ap('resto.jpg','Spazi commerciali e ristorazione','','Pareti con effetto microcemento e superfici decorative continue per locali, negozi e spazi di accoglienza.',['Microcoat','Sistema MicroK','Materia','mK Protective 2K-HD'])+
+ ap('work.jpg','Ambienti industriali e logistici','','Pavimenti in resina per uso industriale e civile, riparazione di giunti e crepe, finiture per pavimenti sottoposti a forti sollecitazioni.',['Epo Coat BS 300 2K','Epo Repair 2K','Metafloor','mK Protective MC-50','Trafix'])+
+ ap('pool.jpg','Esterni, terrazze e piscine','','Pavimentazioni drenanti, finiture per piazzali e cortili, impermeabilizzazione di terrazze e superfici calpestabili.',['Draining Stone','Epox Stone','Metafloor','Acryflex','Hydroflex'])+
+ ap('hotel.jpg','Facciate e protezione degli edifici','','Pitture per grandi superfici, fissativi, guaine termiche e impermeabilizzanti per proteggere l\'involucro dell\'edificio.',['Externa','EKOfiX 102','Thermoguard','Acryflex'])+'</div>'+fol(18,'Applicazioni')));
+/* 17 note */
+P.push(pg('','<div class="hd"><div class="eyebrow">Appunti</div><h2 class="ttl">Note</h2></div><div class="nl"></div>'+fol(19,'Note')));
+/* 18 quarta di copertina */
+var IG='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>';
+var FB='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8.2h2.8l.5-3.3h-3.3V8.4c0-.9.4-1.7 1.8-1.7h1.6V3.8c-.3 0-1.3-.2-2.5-.2-2.6 0-4.2 1.5-4.2 4.3v2.6H7.4v3.3h2.8V22z"/></svg>';
+P.push(pg('bk','<div class="photo">'+I('niche.jpg')+'</div><div class="sage"></div><h1>Dal primer alla finitura</h1><p class="cp">L\'ufficio tecnico affianca progettisti e applicatori nella scelta del ciclo più adatto a ogni progetto.</p>'+
+ '<div class="co"><b>Ekos srl</b><span>Sede legale: SS 115 km 266 Gela-Vittoria, 93012 Gela (CL)</span><span>P. IVA IT01357720851</span><span class="gap">Tel. +39 379 309 1796</span><span>info@ekoscoatings.it</span><span>www.ekoscoatings.it</span><span>Shop: ekoscoatings.it/shop</span><span class="soc2">'+IG+'ekos.coatings</span><span class="soc2">'+FB+'EKOS Coatings</span></div><div class="lg">'+I('logo.png')+'</div>'));
+
+var N=P.length, leaves=N/2;
+var book=document.getElementById('book'), single=document.getElementById('single'), fit=document.getElementById('fit'), scaler=document.getElementById('scaler');
+var cnt=document.getElementById('count'), prev=document.getElementById('prev'), next=document.getElementById('next');
+document.getElementById('print').innerHTML=P.join('');
+
+for(var i=0;i<leaves;i++){
+  var lf=document.createElement('div'); lf.className='leaf'; lf.style.zIndex=leaves-i;
+  lf.innerHTML='<div class="face front">'+P[2*i]+'</div><div class="face back">'+P[2*i+1]+'</div>';
+  book.appendChild(lf);
+}
+var L=[].slice.call(book.querySelectorAll('.leaf'));
+var flipped=0, cur=0, mode='';
+
+function layout(){
+  var narrow=window.innerWidth<900;
+  var st=document.getElementById('stage'), aw=st.clientWidth, ah=st.clientHeight, s;
+  if(narrow){
+    mode='single'; book.style.display='none'; single.style.display='block';
+    s=Math.min(aw/794,ah/1122); fit.style.width=794*s+'px'; fit.style.height=1122*s+'px';
+    single.style.width='794px'; single.style.height='1122px';
+    showSingle(false);
+  }else{
+    mode='book'; single.style.display='none'; book.style.display='block';
+    s=Math.min(aw/1588,ah/1122); fit.style.width=1588*s+'px'; fit.style.height=1122*s+'px';
+    applyBook(false);
+  }
+  scaler.style.transform='scale('+s+')';
+  updateUI();
+}
+function applyBook(anim){
+  L.forEach(function(lf,i){
+    var f=i<flipped; lf.classList.toggle('flipped',f);
+    var z=f?i+1:leaves-i;
+    if(anim){setTimeout(function(){lf.style.zIndex=z;},430);}else{lf.style.zIndex=z;}
+  });
+  var off=flipped===0?-397:(flipped===leaves?397:0);
+  book.style.transform='translateX('+off+'px)';
+}
+function showSingle(anim){
+  single.innerHTML=P[cur];
+  var pgEl=single.firstChild;
+  if(anim){pgEl.animate([{opacity:0,transform:'translateX(30px)'},{opacity:1,transform:'none'}],{duration:320,easing:'ease-out'});}
+}
+function updateUI(){
+  if(mode==='book'){
+    var l=flipped===0?'Copertina':(flipped===leaves?'Quarta di copertina':'Pagine '+(2*flipped)+'–'+(2*flipped+1));
+    cnt.textContent=l; prev.disabled=flipped===0; next.disabled=flipped===leaves;
+  }else{
+    cnt.textContent='Pagina '+(cur+1)+' di '+N; prev.disabled=cur===0; next.disabled=cur===N-1;
+  }
+}
+function go(d){
+  if(mode==='book'){var n=Math.max(0,Math.min(leaves,flipped+d)); if(n===flipped)return; flipped=n; applyBook(true);}
+  else{var c=Math.max(0,Math.min(N-1,cur+d)); if(c===cur)return; cur=c; showSingle(true);}
+  updateUI();
+}
+function goPage(p){
+  if(mode==='book'){flipped=(p%2===1)?(p+1)/2:p/2; applyBook(true);}
+  else{cur=p; showSingle(true);}
+  updateUI();
+}
+prev.onclick=function(){go(-1)}; next.onclick=function(){go(1)};
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(1);else if(e.key==='ArrowLeft')go(-1);else if(e.key==='Enter'&&document.activeElement&&document.activeElement.hasAttribute('data-goto')){goPage(+document.activeElement.getAttribute('data-goto'));}});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-goto]'); if(a){goPage(+a.getAttribute('data-goto'));}});
+var tx=null;
+document.getElementById('stage').addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+document.getElementById('stage').addEventListener('touchend',function(e){if(tx===null)return;var d=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(d)>40)go(d<0?1:-1);});
+window.addEventListener('resize',layout);
+layout();
+})();
+</script>
+
+</body></html>
