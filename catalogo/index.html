@@ -114,6 +114,7 @@ body{background:var(--stage);color:var(--ui-fg);font-family:var(--f);margin:0;ov
 .pa img{width:100%;height:auto}
 .ph1 figcaption{display:none!important;position:absolute;left:0;bottom:0;background:rgba(247,246,242,.92);padding:4px 9px;font-size:9px;letter-spacing:.08em;color:#3d413e}
 /* pitture */
+.stk{margin-top:14px;padding-top:0}.stk-h span{font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--sage)}.stk-b{display:flex;gap:18px;align-items:center;margin-top:8px}.stk-i{width:110px;flex:none}.stk-i img{width:100%;height:auto;display:block}.stk-b .pt{margin:0 0 4px}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,1fr);gap:9px;margin-top:20px;flex:1;min-height:0}
 .pc{padding:14px;background:var(--stone);display:flex;flex-direction:column;min-height:0;overflow:hidden}
 .pc .lgp{height:46px;display:flex;align-items:center}
@@ -122,7 +123,7 @@ body{background:var(--stage);color:var(--ui-fg);font-family:var(--f);margin:0;ov
 .pc .pd{font-size:11px;line-height:1.45;margin-top:5px;color:#3d413e;flex:1}
 .pc .pimg{height:96px;display:flex;align-items:center;justify-content:center}
 .pc .pimg img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain}
-.pc.empty{background:var(--paper);outline:0;align-items:center;justify-content:center;text-align:center;gap:4px;color:#a3a69f}
+.pc.empty{background:var(--paper);outline:1.5px dashed #c4c2b8;outline-offset:-1.5px;align-items:center;justify-content:center;text-align:center;gap:4px;color:#a3a69f}
 .pc.empty b{font-weight:500;font-size:10px;letter-spacing:.2em;text-transform:uppercase}
 .pc.empty span{font-size:10px}
 .pc.intro{background:var(--sage);color:var(--paper);justify-content:flex-end}
@@ -273,7 +274,7 @@ var PR={
  repair:{n:'Epo Repair 2K',lg:'lg_eporepair.png',t:'Riparazioni',d:'Malta bicomponente a base di resina epossidica per sigillare giunti, crepe e irregolarità.',f:'Confezione da 5 kg (componente A) + 1,5 kg'}
 };
 
-var AR={"preparazione.jpg": 1.5, "trattamento.jpg": 3.266, "acril100.jpg": 1.333, "acril100_foto.jpg": 0.391, "cem425.jpg": 0.667, "cem525.jpg": 0.667, "chart.jpg": 0.754, "coat.jpg": 2.23, "cromafug.jpg": 1.703, "cromafug_promo.jpg": 1.499, "degrex.jpg": 1.0, "easysil.jpg": 1.499, "ekofix.jpg": 1.0, "epocoat_info.jpg": 0.969, "eporepair_info.jpg": 1.2, "fam_accessori.jpg": 1.333, "geo.jpg": 0.707, "green.jpg": 1.786, "hero.jpg": 1.786, "hotel.jpg": 1.332, "im_draining.jpg": 2.722, "intermedio.jpg": 1.0, "kitchen.jpg": 1.009, "materia_pres.jpg": 0.983, "niche.jpg": 1.786, "ossidi_info.jpg": 1.094, "pantone.jpg": 1.536, "poliestere.jpg": 1.412, "pool.jpg": 1.138, "pvr10.jpg": 1.333, "resto.jpg": 1.023, "rock.jpg": 0.667, "stairs.jpg": 0.798, "work.jpg": 0.75};
+var AR={"preparazione.jpg": 1.5, "trattamento.jpg": 3.266, "acril100.jpg": 1.333, "acril100_foto.jpg": 0.391, "cem425.jpg": 0.667, "cem525.jpg": 0.667, "chart.jpg": 0.754, "coat.jpg": 2.23, "cromafug.jpg": 1.703, "cromafug_promo.jpg": 1.499, "degrex.jpg": 1.0, "easysil.jpg": 1.499, "ekofix.jpg": 1.0, "epocoat_info.jpg": 0.969, "eporepair_info.jpg": 1.2, "fam_accessori.jpg": 1.333, "geo.jpg": 0.707, "green.jpg": 1.786, "hero.jpg": 1.786, "hotel.jpg": 1.332, "im_draining.jpg": 2.722, "intermedio.jpg": 1.0, "kitchen.jpg": 1.009, "materia_pres.jpg": 0.983, "niche.jpg": 1.786, "ossidi_info.jpg": 1.094, "pantone.jpg": 1.536, "poliestere.jpg": 1.412, "pool.jpg": 1.138, "pvr10.jpg": 1.333, "resto.jpg": 1.023, "rock.jpg": 0.667, "stairs.jpg": 0.798, "work.jpg": 0.75, "externa_banner.jpg": 1.777, "imperm_banner.jpg": 1.5};
 var P=[];
 /* 1 copertina */
 P.push(pg('cov','<div class="photo">'+I('hero.jpg')+'</div><div class="sage"></div><h1>Materiali e soluzioni per progettare meglio</h1><p class="cp">Dal primer alla finitura: microcemento, resine, pitture e impermeabilizzanti per chi progetta e per chi posa.</p><div class="sub">Catalogo prodotti 2026<br>Microcementi · Resine · Pitture · Impermeabilizzanti</div><div class="lg">'+I('logo.png')+'</div>'));
@@ -319,9 +320,11 @@ function pcell(im,t,d){return '<div class="pc"><div class="pimg">'+I(im)+'</div>
 var empt6='';for(var i=1;i<=4;i++)empt6+='<div class="pc empty"><b>Spazio '+i+'</b><span>Logo e descrizione</span></div>';
 var empt='';for(var i=1;i<=9;i++)empt+='<div class="pc empty"><b>Spazio '+i+'</b><span>Logo e descrizione</span></div>';
 P.push(pg('',head('Pitture e finiture','Pitture e finiture','Idropitture e pitture al quarzo per interni ed esterni. Per proteggere e rifinire pareti e facciate.')+
- '<div class="pgrid"><div class="pc intro"><div class="pn">La gamma</div><div class="pd" style="margin-top:6px">Pitture murali per grandi superfici e per interni. Nuovi prodotti in arrivo.</div></div>'+
- pcell('milo_secchio.png','Pitture murali · Milo','Idropittura lavabile per interni ed esterni, professionale.')+pcell('nuvex.png','Pitture murali · Nuvex','Pittura murale per interni della linea Pitture e finiture EKOS.')+pcell('stucco_dolce.png','Stucco dolce in pasta','Stucco in pasta per la preparazione e la finitura delle pareti.')+
- pcell('pr_externa_secchi.jpg','Pitture murali · Externa','Pittura minerale al quarzo: idropittura murale superlavabile bianca, opaca e ad alta copertura, per interni ed esterni. Confezione da 14 litri.')+pcell('prowash.png','Pitture murali · Prowash','Idropittura superlavabile antimuffa per interni, per ambienti da vivere e da pulire spesso.')+pcell('vetrotech.png','Pitture murali · VetroTech','Idropittura anticondensa con microsfere di vetro. Confezioni da 4 e 10 litri.')+pcell('promat.png','Pitture murali · Promat','Idropittura lavabile super opaca.')+empt6+'</div>'+fol(9,'Pitture e finiture')));
+ '<div class="pgrid" style="grid-template-rows:1fr 1fr 275px"><div class="pc intro"><div class="pn">La gamma</div><div class="pd" style="margin-top:6px">Pitture murali per grandi superfici e per interni. Nuovi prodotti in arrivo.</div></div>'+
+ pcell('milo_secchio.png','Pitture murali · Milo','Idropittura lavabile per interni ed esterni, professionale.')+pcell('nuvex.png','Pitture murali · Nuvex','Pittura murale per interni della linea Pitture e finiture EKOS.')+
+ pcell('prowash.png','Pitture murali · Prowash','Idropittura superlavabile antimuffa per interni, per ambienti da vivere e da pulire spesso.')+pcell('vetrotech.png','Pitture murali · VetroTech','Idropittura anticondensa con microsfere di vetro. Confezioni da 4 e 10 litri.')+pcell('promat.png','Pitture murali · Promat','Idropittura lavabile super opaca.')+
+ '<div style="grid-column:1/4;display:flex;align-items:center;justify-content:center;min-height:0">'+I('externa_banner.jpg').replace('<img','<img style="width:100%;height:auto;max-height:100%;object-fit:contain;display:block"')+'</div></div>'+
+ '<div class="stk"><div class="stk-b"><div class="stk-i">'+I('stucco_dolce.png')+'</div><div><div class="pt">Stucco dolce in pasta</div><div class="pd">Stucco in pasta per la preparazione e la finitura delle pareti.</div></div></div></div>'+fol(9,'Pitture e finiture')));
 /* 9 resine: pavimenti */
 P.push(pg('',head('Resine e rivestimenti','Resine per pavimenti','Resine epossidiche e metacriliche per pavimentazioni industriali e civili, esterni e riparazioni.')+
  rows([pr({n:'Epo Coat BS 300 2K',lg:'lg_epo.png',t:'Pavimenti',d:'Resina epossidica autolivellante bicomponente per pavimenti industriali e civili, trasparente e colorata, per interni ed esterni. Anche in kit A 500 g + B 300 g: ultra trasparente, lucida, senza solventi, per colate fino a 2 cm.',f:'Componente A da 5 kg · kit A 500 g + B 300 g'}),
@@ -339,7 +342,7 @@ P.push(pg('',head('Impermeabilizzanti','Impermeabilizzanti','Malte e guaine liqu
  rows([pr({n:'Hydroflex',im:'hydroflex.png',h:96,t:'Impermeabilizzante',d:'Malta cementizia elastomerica bicomponente con funzione impermeabilizzante. Componente A in polvere (75%) e componente B polimero liquido (25%).',f:'Confezione da 20 kg · da +5 °C a +35 °C',big:1,h:84}),
  pr({n:'Acryflex',im:'acryflex.png',t:'Impermeabilizzante',d:'Guaina acrilica liquida elastomerica monocomponente: membrana impermeabile, flessibile, calpestabile e resistente agli agenti atmosferici. A pennello o a rullo, due mani.',f:'Lattine da 14 litri · grigia o bianca · 400-600 g/m² per mano',big:1,h:96}),
  pr({n:'Thermoguard',im:'thermoguard.png',t:'Impermeabilizzante',d:'Guaina liquida termica ad alta riflettanza: membrana impermeabile, termoisolante, flessibile e calpestabile. Riduce i flussi termici, caldi e freddi.',f:'Latta da 20 kg · 400-600 g/m² per mano',big:1,h:96})])+
- figs([{i:[['work.jpg'],['hotel.jpg']],w:82}]).replace('<div class="fr" style="','<div class="fr" style="margin:0 auto;')+fol(12,'Impermeabilizzanti')));
+ figs([{i:[['imperm_banner.jpg']],w:64}]).replace('<div class="fr" style="','<div class="fr" style="margin:0 auto;')+fol(12,'Impermeabilizzanti')));
 /* 12 preparazione */
 P.push(pg('dense',head('Preparazione dei supporti','Preparazione dei supporti','Primer, fissativi e sgrassatori, scelti in base al fondo, assorbente o liscio: il primo passo di ogni ciclo.')+
  rows([pr(PR.pvr10),pr(PR.p15),pr(PR.p14),pr(PR.primo),pr(PR.pox2c),pr(PR.pox3c),pr(PR.ekofix),pr(PR.degrex)])+
