@@ -122,7 +122,7 @@ body{background:var(--stage);color:var(--ui-fg);font-family:var(--f);margin:0;ov
 .pc .pd{font-size:11px;line-height:1.45;margin-top:5px;color:#3d413e;flex:1}
 .pc .pimg{height:96px;display:flex;align-items:center;justify-content:center}
 .pc .pimg img{max-height:100%;max-width:100%;width:auto;height:auto;object-fit:contain}
-.pc.empty{background:var(--paper);outline:1.5px dashed #c4c2b8;outline-offset:-1.5px;align-items:center;justify-content:center;text-align:center;gap:4px;color:#a3a69f}
+.pc.empty{background:var(--paper);outline:0;align-items:center;justify-content:center;text-align:center;gap:4px;color:#a3a69f}
 .pc.empty b{font-weight:500;font-size:10px;letter-spacing:.2em;text-transform:uppercase}
 .pc.empty span{font-size:10px}
 .pc.intro{background:var(--sage);color:var(--paper);justify-content:flex-end}
@@ -265,7 +265,7 @@ var PR={
  p15:{n:'Primer 15Q Grip',lg:'ls_primer15q.png',t:'Primer',d:'Promotore di adesione per sottofondi non assorbenti: marmo, ceramica, cotto, gres, porcellanato, vetro.',f:'Secchi da 0,5 · 1 · 2,5 · 5 kg',s:'primer-15q.pdf'},
  p14:{n:'Primer 14Q Grip',lg:'lg_primer14q.png',t:'Primer',d:'Promotore di adesione per supporti difficili, non o poco assorbenti, a viscosità ridotta.',f:'Secchi da 0,5 · 1 · 2,5 · 5 kg · secchio da 20 kg'},
  primo:{n:'Primo QR',lg:'ls_primo.png',t:'Primer',d:'Promotore di adesione riempitivo in pasta, anche per rasare fughe profonde o larghe.',f:'Secchi da 2,5 · 5 · 10 kg'},
- ekofix:{n:'EKOfiX 102',im:'ekofix_conf.jpg',t:'Fissativo',d:'Primer murale acrilico ad alta concentrazione: fissativo per intonaci interni ed esterni, cementizi o a base gesso.',f:'Confezione da 1 litro · resa teorica 8 m² per litro',s:'ekofix-102.pdf'},
+ ekofix:{n:'EKOfiX 102',im:'ekofix_conf.png',t:'Fissativo',d:'Primer murale acrilico ad alta concentrazione: fissativo per intonaci interni ed esterni, cementizi o a base gesso.',f:'Confezione da 1 litro · resa teorica 8 m² per litro',s:'ekofix-102.pdf'},
  degrex:{n:'Degrex PRO',lg:'lg_degrex.png',t:'Pulizia',d:'Sgrassatore forte della linea mK, pronto all\'uso, per preparare le superfici prima dell\'applicazione.',f:'Flacone da 1 litro con spruzzino'},
  acril:{n:'Acril100',lg:'lg_acril100.png',t:'Fissativi e protettivi',d:'Resina acrilica protettiva della linea Eterna: dispersione acquosa anionica di un copolimero acrilico al 46% di solidi.',f:'Flacone da 1 litro · Tanica da 5 litri'},
  hd:{n:'mK Protective 2K-HD',lg:'lg_mkp.png',t:'Finitura',d:'Finitura all\'acqua bicomponente per interni, per MicroK e Microcoat.',f:'Confezioni da 1,2 kg (1 + 0,2) e 6 kg (5 + 1)',s:'mk-protective-2k-hd.pdf'},
@@ -320,7 +320,7 @@ var empt6='';for(var i=1;i<=4;i++)empt6+='<div class="pc empty"><b>Spazio '+i+'<
 var empt='';for(var i=1;i<=9;i++)empt+='<div class="pc empty"><b>Spazio '+i+'</b><span>Logo e descrizione</span></div>';
 P.push(pg('',head('Pitture e finiture','Pitture e finiture','Idropitture e pitture al quarzo per interni ed esterni. Per proteggere e rifinire pareti e facciate.')+
  '<div class="pgrid"><div class="pc intro"><div class="pn">La gamma</div><div class="pd" style="margin-top:6px">Pitture murali per grandi superfici e per interni. Nuovi prodotti in arrivo.</div></div>'+
- pcell('milo_secchio.jpg','Pitture murali · Milo','Idropittura lavabile per interni ed esterni, professionale.')+pcell('nuvex.jpg','Pitture murali · Nuvex','Pittura murale per interni della linea Pitture e finiture EKOS.')+pcell('stucco_dolce.jpg','Stucchi · Stucco dolce in pasta','Stucco in pasta per la preparazione e la finitura delle pareti.')+
+ pcell('milo_secchio.png','Pitture murali · Milo','Idropittura lavabile per interni ed esterni, professionale.')+pcell('nuvex.png','Pitture murali · Nuvex','Pittura murale per interni della linea Pitture e finiture EKOS.')+pcell('stucco_dolce.png','Stucco dolce in pasta','Stucco in pasta per la preparazione e la finitura delle pareti.')+
  pcell('pr_externa_secchi.jpg','Pitture murali · Externa','Pittura minerale al quarzo: idropittura murale superlavabile bianca, opaca e ad alta copertura, per interni ed esterni. Confezione da 14 litri.')+pcell('prowash.png','Pitture murali · Prowash','Idropittura superlavabile antimuffa per interni, per ambienti da vivere e da pulire spesso.')+pcell('vetrotech.png','Pitture murali · VetroTech','Idropittura anticondensa con microsfere di vetro. Confezioni da 4 e 10 litri.')+pcell('promat.png','Pitture murali · Promat','Idropittura lavabile super opaca.')+empt6+'</div>'+fol(9,'Pitture e finiture')));
 /* 9 resine: pavimenti */
 P.push(pg('',head('Resine e rivestimenti','Resine per pavimenti','Resine epossidiche e metacriliche per pavimentazioni industriali e civili, esterni e riparazioni.')+
