@@ -304,6 +304,13 @@ body{background:var(--stage);color:var(--ui-fg);font-family:var(--f);margin:0;ov
 .g2 .pr,.g2 .ds{min-width:0}
 .g2 .ds .nm{letter-spacing:.09em;overflow-wrap:anywhere}
 .g2 .ds .tp,.pg.dense .g2 .ds .tp{display:none!important}
+.g2 .pr.lc .nm{display:none}
+.g2 .lgt,.g2 .lgt.ph,.pg.dense .g2 .lgt,.pg.dense .g2 .lgt.ph{width:58%!important}
+.g2 .lgt.dk,.pg.dense .g2 .lgt.dk{width:58%!important;padding:4%!important}
+.g2 .lgt.dk img,.pg.dense .g2 .lgt.dk img{width:100%!important;height:auto!important;max-width:100%!important;max-height:100%!important;object-fit:contain}
+.g2 .lgt:has(img[src*=lg_ceramix]){align-items:center!important;justify-content:center!important}
+.g2 .lgt img[src*=lg_ceramix]{object-position:center center!important;max-height:80%!important}
+.rows.g2{gap:12px 12px!important}
 @media print{
   @page{size:A4;margin:0}
   html,body{height:auto;overflow:visible;background:#fff}
@@ -333,7 +340,7 @@ function schl(s){return '';}
 /* o: n nome, lg logo, dk fondo scuro, wm wordmark html, im foto tile, t tipo, d descrizione, f formati, s scheda */
 function pr(o){
   var tile=o.lg?'<div class="lgt'+(o.dk?' dk':'')+'">'+I(o.lg)+'</div>':o.wm?'<div class="lgt">'+o.wm+'</div>':o.im?'<div class="lgt ph">'+I(o.im)+'</div>':'<div class="lgt"><span class="nmx">'+o.n+'</span></div>';
-  return '<div class="pr'+(o.big?' big':'')+'" style="'+(o.h?'min-height:'+o.h+'px':'')+'">'+tile+'<div class="ds">'+(o.t?'<span class="tp">'+o.t+'</span>':'')+'<b class="nm">'+o.n+'</b><p>'+o.d+'</p>'+(o.f?'<span class="fm">'+o.f+'</span>':'')+schl(o.s)+'</div></div>';
+  return '<div class="pr'+(o.big?' big':'')+((o.lg||o.wm)?' lc':'')+'" style="'+(o.h?'min-height:'+o.h+'px':'')+'">'+tile+'<div class="ds">'+(o.t?'<span class="tp">'+o.t+'</span>':'')+'<b class="nm">'+o.n+'</b><p>'+o.d+'</p>'+(o.f?'<span class="fm">'+o.f+'</span>':'')+schl(o.s)+'</div></div>';
 }
 function head(ey,t,l){return '<div class="hd"><div class="eyebrow">'+ey+'</div><h2 class="ttl">'+t+'</h2>'+(l?'<p class="lead">'+l+'</p>':'')+'</div>';}
 function grp(t){return '<div class="grp">'+t+'</div>';}
@@ -393,7 +400,7 @@ P.push(pg('dense','<div class="hd"><div class="eyebrow">Microcemento</div><h2 cl
 function mkc(c,col){return {n:'MicroK '+c,im:'mk_'+col+'.jpg',t:'Sistema MicroK',d:'La versione '+(col==='black'?'nera':col==='white'?'bianca':'rossa')+' del Sistema MicroK: microK5 '+c+' con PVR11 o PVR12 '+c+'. Si applica come il sistema standard, 3 parti di componente A a 1 di componente B in peso.',f:'microK5 '+c+': 3 kg e 15 kg · PVR '+c+': 1 e 5 litri'};}
 P.push(pg('dense','<div class="hd"><div class="eyebrow">Microcemento</div><h2 class="ttl" style="font-size:36px">Componente B, colori, intermedio e finiture</h2></div>'+
  grp('Componente B')+rows([pr({n:'PVR11',lg:'ls_pvr11.png',t:'Componente B',d:'Componente B: polimero per la miscelazione dei MicroK.',f:'Taniche da 1 e 5 litri · 1 parte di PVR a 3 di MicroK',s:'pvr11.pdf'}),pr({n:'PVR12',lg:'ls_pvr12.png',t:'Componente B',d:'Componente B autolivellante per la miscelazione dei MicroK (PVR12f per superfici orizzontali).',f:'Taniche da 1 e 5 litri · 1 parte di PVR a 3 di MicroK',s:'pvr12f.pdf'})])+
- grp('Colori')+rows([pr(mkc('Black','black')),pr(mkc('White','white')),pr(mkc('Red','red')),pr(PR.pigmk)])+
+ grp('Colori')+rows([pr(mkc('Black','black')),pr(mkc('White','white')),pr(mkc('Red','red'))])+
  grp('Intermedio')+rows([pr({n:'MK Intermedio',lg:'lg_mkint.png',t:'Intermedio',d:'Primer regolatore di assorbenza per l\'applicazione di finiture poliuretaniche all\'acqua su pavimenti cementizi e altre superfici. Pronto all\'uso, ricopertura dopo 6-8 ore.',f:'Flacone da 1 litro · Tanica da 5 litri'})])+
  grp('Finiture')+rows([pr(PR.hd),pr(PR.mc50)])+fol(6,'Microcemento')));
 /* colori MicroK */
@@ -404,7 +411,7 @@ P.push(pg('',head('Malte decorative','Malte decorative','Malte per pareti materi
  pr({n:'GeoCrete',im:'geocrete_parete.jpg',t:'Malte',d:'Malta tixotropica alleggerita ad alta viscosità per pareti decorative effetto roccia, per interni ed esterni. Composizione alleggerita: spessori elevati in un\'unica passata.',f:'Confezione da 15 kg · da +5 °C a +35 °C'}),
  pr({n:'Materia',im:'materia_parete.jpg',t:'Malte',d:'Malta in pasta. La materia che prende forma.'})])+
  '<table class="mt"><tr><th>Microcoat</th><th>Coat BASE</th><th>Coat MEDIO</th><th>Coat FINE</th></tr><tr><td>Resa</td><td>0,900 kg/m²</td><td>0,450 kg/m²</td><td>0,250 kg/m²</td></tr><tr><td>Spessore max per strato</td><td>0,8 mm</td><td>0,5 mm</td><td>0,3 mm</td></tr><tr><td>Grana carta vetrata</td><td>40</td><td>120</td><td>220</td></tr><tr><td>Durezza Shore</td><td>55</td><td>48</td><td>43</td></tr><tr><td>Asciugatura tra le mani</td><td colspan="3">4-8 ore</td></tr></table>'+
- figs([{i:[['pantone.jpg','Microcoat nelle tinte Pantone'],['geo.jpg','GeoCrete'],['rock.jpg','GeoCrete: parete effetto roccia'],['resto.jpg','Parete Microcoat in un ristorante']],w:56},{i:[['materia_pres.jpg','Materia'],['coat.jpg','Cartella colori Microcoat']],w:52}])+fol(8,'Malte decorative')));
+ figs([[['pantone.jpg'],['geo.jpg'],['materia_pres.jpg']]])+fol(8,'Malte decorative')));
 /* 8 pitture: 2 prodotti + 9 spazi */
 function pcell(im,t,d){return '<div class="pc"><div class="pimg">'+I(im)+'</div><div class="pt">'+t+'</div><div class="pd">'+d+'</div></div>';}
 var empt6='';for(var i=1;i<=4;i++)empt6+='<div class="pc empty"><b>Spazio '+i+'</b><span>Logo e descrizione</span></div>';
@@ -436,13 +443,13 @@ P.push(pg('',head('Impermeabilizzanti','Impermeabilizzanti','Malte e guaine liqu
 /* 12 preparazione */
 P.push(pg('dense',head('Preparazione dei supporti','Preparazione dei supporti','Primer, fissativi e sgrassatori, scelti in base al fondo, assorbente o liscio: il primo passo di ogni ciclo.')+
  rows([pr(PR.pvr10),pr(PR.p15),pr(PR.p14),pr(PR.primo),pr(PR.pox2c),pr(PR.pox3c),pr(PR.ekofix),pr(PR.degrex)])+
- figs([{i:[['preparazione.jpg']],w:54}]).replace('<div class="fr" style="','<div class="fr" style="margin:0 auto;')+fol(13,'Preparazione dei supporti')));
+ fol(13,'Preparazione dei supporti')));
 /* 13 trattamento */
 P.push(pg('',head('Trattamento dei supporti','Trattamento dei supporti','Fissativi, protettivi, sgrassatori, finiture e riparazioni per trattare i supporti prima e dopo l\'applicazione.')+
  rows([pr(PR.acril),pr(PR.degrex),pr(PR.hd),pr(PR.mc50),pr(PR.repair)])+
  figs([[['trattamento.jpg']]]).replace('class="photos"','class="photos" style="margin:auto 0"')+fol(14,'Trattamento dei supporti')));
 /* 14 complementari */
-P.push(pg('','<div class="hd"><div class="eyebrow">Prodotti complementari</div><h2 class="ttl" style="font-size:36px">Pigmenti, additivi, fughe, gomma e resine</h2></div>'+
+P.push(pg('','<div class="hd"><div class="eyebrow">Pigmenti · additivi · fughe · gomma · resine</div><h2 class="ttl" style="font-size:36px">Prodotti complementari</h2></div>'+
  rows([pr({n:'Ossidi colorati',im:'ossidi_info.jpg',t:'Pigmenti',d:'Pigmenti a base di ossidi per colorare i prodotti, con elevata coprenza e ottima durata, facili da miscelare. 11 colori: bianco (ossido di titanio), giallo, blu, rosso, verde, arancio, nero, grigio, azzurro, tabacco e marrone.',f:'Confezione da 500 g'}),
  pr(PR.pigmk),
  pr({n:'idroSAN',im:'idrosan.png',t:'Additivi',d:'Additivo antimuffa specifico per idropitture murali, ideale per ambienti soggetti a umidità come bagni, cucine, seminterrati, cantine e ambienti esterni. Protegge le pareti dalla muffa e le mantiene più sane e pulite.',f:'Barattolo da 250 g · 250 g ogni 5 litri di idropittura'}),
