@@ -214,7 +214,7 @@ body{background:var(--stage);color:var(--ui-fg);font-family:var(--f);margin:0;ov
 .swg.g4{grid-template-columns:repeat(4,1fr)}
 /* colori microk */
 .colp{flex:1;display:flex;justify-content:center;align-items:flex-start;margin-top:6px}
-.colp img{height:900px;width:auto;display:block}
+.colp img{height:870px;width:auto;display:block}
 
 /* griglia a schede: 3 per riga, immagine quadrata, fondo chiarissimo */
 .rows.g2{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 12px;margin-top:12px;align-items:start}
@@ -363,7 +363,7 @@ var PR={
  repair:{n:'Epo Repair 2K',lg:'lg_eporepair.png',t:'Riparazioni',d:'Malta bicomponente a base di resina epossidica per sigillare giunti, crepe e irregolarità.',f:'Confezione da 5 kg (componente A) + 1,5 kg'}
 };
 
-var AR={"preparazione.jpg": 1.5, "trattamento.jpg": 3.266, "acril100.jpg": 1.333, "acril100_foto.jpg": 0.391, "cem425.jpg": 0.667, "cem525.jpg": 0.667, "chart.jpg": 0.754, "coat.jpg": 2.23, "cromafug.jpg": 1.703, "cromafug_promo.jpg": 1.499, "degrex.jpg": 1.0, "easysil.jpg": 1.499, "ekofix.jpg": 1.0, "epocoat_info.jpg": 0.969, "eporepair_info.jpg": 1.2, "fam_accessori.jpg": 1.333, "geo.jpg": 0.707, "green.jpg": 1.786, "hero.jpg": 1.786, "hotel.jpg": 1.332, "im_draining.jpg": 2.722, "intermedio.jpg": 1.0, "kitchen.jpg": 1.009, "materia_pres.jpg": 0.983, "niche.jpg": 1.786, "ossidi_info.jpg": 1.094, "pantone.jpg": 1.536, "poliestere.jpg": 1.412, "pool.jpg": 1.138, "pvr10.jpg": 1.333, "resto.jpg": 1.023, "rock.jpg": 0.667, "stairs.jpg": 0.798, "work.jpg": 0.75, "externa_banner.jpg": 1.777, "imperm_banner.jpg": 1.5};
+var AR={"microcoat_bagno.jpg": 1.0, "preparazione.jpg": 1.5, "trattamento.jpg": 3.266, "acril100.jpg": 1.333, "acril100_foto.jpg": 0.391, "cem425.jpg": 0.667, "cem525.jpg": 0.667, "chart.jpg": 0.754, "coat.jpg": 2.23, "cromafug.jpg": 1.703, "cromafug_promo.jpg": 1.499, "degrex.jpg": 1.0, "easysil.jpg": 1.499, "ekofix.jpg": 1.0, "epocoat_info.jpg": 0.969, "eporepair_info.jpg": 1.2, "fam_accessori.jpg": 1.333, "geo.jpg": 0.707, "green.jpg": 1.786, "hero.jpg": 1.786, "hotel.jpg": 1.332, "im_draining.jpg": 2.722, "intermedio.jpg": 1.0, "kitchen.jpg": 1.009, "materia_pres.jpg": 0.983, "niche.jpg": 1.786, "ossidi_info.jpg": 1.094, "pantone.jpg": 1.536, "poliestere.jpg": 1.412, "pool.jpg": 1.138, "pvr10.jpg": 1.333, "resto.jpg": 1.023, "rock.jpg": 0.667, "stairs.jpg": 0.798, "work.jpg": 0.75, "externa_banner.jpg": 1.777, "imperm_banner.jpg": 1.5};
 var P=[];
 /* 1 copertina */
 P.push(pg('cov','<div class="photo">'+I('hero.jpg')+'</div><div class="sage"></div><h1>Materiali e soluzioni per progettare meglio</h1><p class="cp">Dal primer alla finitura: microcemento, resine, pitture e impermeabilizzanti per chi progetta e per chi posa.</p><div class="sub">Catalogo prodotti 2026<br>Microcementi · Resine · Pitture · Impermeabilizzanti</div><div class="lg">'+I('logo.png')+'</div>'));
@@ -399,11 +399,11 @@ P.push(pg('dense','<div class="hd"><div class="eyebrow">Microcemento</div><h2 cl
 P.push(pg('','<div class="hd"><div class="eyebrow">Microcemento</div><h2 class="ttl" style="font-size:36px">I nostri colori MicroK</h2></div><div class="colp">'+I('colori_microk.jpg')+'</div>'+fol(7,'Microcemento')));
 /* 7 malte decorative */
 P.push(pg('',head('Malte decorative','Malte decorative','Malte per pareti materiche, effetto microcemento ed effetto roccia: Microcoat, GeoCrete e Materia.')+
- rows([pr({n:'Microcoat',wm:WM.mc,t:'Malte',d:'Rivestimento decorativo in pasta pronto all\'uso, a base di resina acrilica e cariche minerali selezionate: superfici continue a effetto microcemento satinato, moderne e resistenti. Disponibile in tutte le tinte NCS, RAL e Pantone; conviene ordinare la tinta in un unico lotto.',f:'Applicazione a spatola in 1-2 mani · tre versioni: Coat BASE, MEDIO, FINE',s:'microcoat.pdf'}),
+ rows([pr({n:'Microcoat',im:'microcoat_bagno.jpg',t:'Malte',d:'Rivestimento decorativo in pasta pronto all\'uso, a base di resina acrilica e cariche minerali selezionate: superfici continue a effetto microcemento satinato, moderne e resistenti. Disponibile in tutte le tinte NCS, RAL e Pantone; conviene ordinare la tinta in un unico lotto.',f:'Applicazione a spatola in 1-2 mani · tre versioni: Coat BASE, MEDIO, FINE',s:'microcoat.pdf'}),
  pr({n:'GeoCrete',lg:'lg_geo.png',dk:1,t:'Malte',d:'Malta tixotropica alleggerita ad alta viscosità per pareti decorative effetto roccia, per interni ed esterni. Composizione alleggerita: spessori elevati in un\'unica passata.',f:'Confezione da 15 kg · da +5 °C a +35 °C'}),
  pr({n:'Materia',lg:'lg_materia.png',t:'Malte',d:'Malta in pasta. La materia che prende forma.'})])+
  '<table class="mt"><tr><th>Microcoat</th><th>Coat BASE</th><th>Coat MEDIO</th><th>Coat FINE</th></tr><tr><td>Resa</td><td>0,900 kg/m²</td><td>0,450 kg/m²</td><td>0,250 kg/m²</td></tr><tr><td>Spessore max per strato</td><td>0,8 mm</td><td>0,5 mm</td><td>0,3 mm</td></tr><tr><td>Grana carta vetrata</td><td>40</td><td>120</td><td>220</td></tr><tr><td>Durezza Shore</td><td>55</td><td>48</td><td>43</td></tr><tr><td>Asciugatura tra le mani</td><td colspan="3">4-8 ore</td></tr></table>'+
- figs([{i:[['pantone.jpg','Microcoat nelle tinte Pantone'],['geo.jpg','GeoCrete'],['rock.jpg','GeoCrete: parete effetto roccia'],['resto.jpg','Parete Microcoat in un ristorante']],w:62},{i:[['materia_pres.jpg','Materia'],['coat.jpg','Cartella colori Microcoat']],w:60}])+fol(8,'Malte decorative')));
+ figs([{i:[['pantone.jpg','Microcoat nelle tinte Pantone'],['geo.jpg','GeoCrete'],['rock.jpg','GeoCrete: parete effetto roccia'],['resto.jpg','Parete Microcoat in un ristorante']],w:56},{i:[['materia_pres.jpg','Materia'],['coat.jpg','Cartella colori Microcoat']],w:52}])+fol(8,'Malte decorative')));
 /* 8 pitture: 2 prodotti + 9 spazi */
 function pcell(im,t,d){return '<div class="pc"><div class="pimg">'+I(im)+'</div><div class="pt">'+t+'</div><div class="pd">'+d+'</div></div>';}
 var empt6='';for(var i=1;i<=4;i++)empt6+='<div class="pc empty"><b>Spazio '+i+'</b><span>Logo e descrizione</span></div>';
@@ -488,7 +488,7 @@ function paginate(done){
   var meas=document.createElement('div');meas.style.cssText='position:absolute;left:-9999px;top:0;width:794px';document.body.appendChild(meas);
   var out=[],map=[];
   function tmp(h){var d=document.createElement('div');d.innerHTML=h;return d.firstChild;}
-  function limit(E){return E.getBoundingClientRect().bottom-82;}
+  function limit(E){return E.getBoundingClientRect().bottom-76;}
   function bottomOf(E){var m=0;[].slice.call(E.children).forEach(function(c){if(c.classList.contains('folio'))return;var b=c.getBoundingClientRect().bottom;if(b>m)m=b;});return m;}
   function kids(E){return [].slice.call(E.children).filter(function(c){return !c.classList.contains('folio')&&!c.classList.contains('hd');});}
   function process(E,first){
