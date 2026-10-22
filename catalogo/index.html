@@ -432,9 +432,9 @@ P.push(pg('',head('Resine e rivestimenti','Resine per pavimenti','Resine epossid
  pr({n:'Trafix',lg:'lg_trafix.png',dk:1,t:'Pavimenti',d:'Vernice metacrilica per segnaletica orizzontale, da applicare su asfalto.'})])+
  figs([[['epocoat_info.jpg','Epo Coat: componenti e applicazioni'],['eporepair_info.jpg','Epo Repair: prima e dopo']]])+fol(10,'Resine e rivestimenti')));
 /* 10 drenanti + tecniche */
-P.push(pg('','<div class="hd"><div class="eyebrow">Resine e rivestimenti</div><h2 class="ttl" style="font-size:38px">Pavimenti drenanti</h2></div>'+
+P.push(pg('','<div class="hd" data-pbk="1"><div class="eyebrow">Resine e rivestimenti</div><h2 class="ttl" style="font-size:38px">Pavimenti drenanti</h2></div>'+
  grp('Pavimenti drenanti')+rows([pr({n:'Draining Stone',lg:'lg_draining.png',t:'Pavimenti drenanti',d:'Sistema per pavimentazioni esterne continue in ciottoli legati con resina, in diverse tinte: piscine, piste ciclabili, viali, piazze, balconi, terrazze, cortili e parcheggi. Consumo: 25 kg di graniglia + 800 g di Epox Stone ogni 1-1,2 m²; pedonabile dopo 8-12 ore, carrabile dopo 48-72 ore.',s:'draining-stone.pdf',h:92}),
- pr({n:'Epox Stone',lg:'lg_epox.png',t:'Pavimenti drenanti',d:'Resina epossidica trasparente bicomponente per la miscela dei massetti drenanti Draining Stone.',f:'Componente A da 5 kg'})])+
+ pr({n:'Epox Stone',lg:'lg_epox.png',t:'Pavimenti drenanti',d:'Resina epossidica trasparente bicomponente per la miscela dei massetti drenanti Draining Stone. Serve anche per pavimentazioni con ciottoli e graniglie non drenanti.',f:'Componente A da 5 kg'})])+
  '<div class="dsrow"><figure class="pa">'+I('pr_piscina.jpg')+'</figure><div>'+grp('Ciottolini in vetro · 8 tinte')+'<div class="swg g4">'+DSG.map(function(x){return sw(x,'v');}).join('')+'</div></div></div>'+grp('Ciottoli e graniglie di pietra · sacco da 25 kg · granulometrie in mm')+'<div class="swg">'+DSP.map(function(x){return sw(x,'p');}).join('')+'</div>'+fol(11,'Resine e rivestimenti')));
 /* 11 impermeabilizzanti */
 P.push(pg('',head('Impermeabilizzanti','Impermeabilizzanti','Malte e guaine liquide per proteggere le superfici dall\'acqua e dal calore: terrazze, coperture e superfici esposte alle infiltrazioni.')+
@@ -541,7 +541,7 @@ function paginate(done){
         if(ph)E.removeChild(ph);
         [].slice.call(F.children).forEach(function(c){if(c.classList.contains('hd')||c.classList.contains('folio'))return;E.appendChild(c);});
         if(ph)E.appendChild(ph);
-        var T={'Microcemento':E.querySelector('.hd[data-pbk]')?'Componenti, colori e finiture':'Primer, componenti e finiture','Resine e rivestimenti':'Resine e pavimenti drenanti'}[ey(E)];if(T)E.querySelector('.hd .ttl').textContent=T;
+        var T={'Microcemento':E.querySelector('.hd[data-pbk]')?'Componenti, colori e finiture':'Primer, componenti e finiture','Resine e rivestimenti':'Pavimenti drenanti'}[ey(E)];if(T)E.querySelector('.hd .ttl').textContent=T;
         i++;map[i]=out.length;
       }
       process(E,true);
