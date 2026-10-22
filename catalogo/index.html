@@ -216,24 +216,22 @@ body{background:var(--stage);color:var(--ui-fg);font-family:var(--f);margin:0;ov
 .colp{flex:1;display:flex;justify-content:center;align-items:flex-start;margin-top:6px}
 .colp img{height:900px;width:auto;display:block}
 
-/* griglia a schede */
-.rows.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-.g2 .pr{flex-direction:column;gap:0;min-height:0!important;background:#fff0;height:auto}
-.g2 .lgt,.g2 .lgt.ph{width:100%!important;height:100px;padding:8px 14px;background:var(--stone);align-self:stretch;align-items:center;justify-content:center}
-.g2 .lgt.ph{padding:6px}
+/* griglia a schede: 3 per riga, immagine quadrata, fondo chiarissimo */
+.rows.g2{display:grid;grid-template-columns:repeat(3,1fr);gap:14px 12px;margin-top:12px;align-items:start}
+.g2 .pr,.pg.dense .g2 .pr{flex-direction:column;gap:0!important;min-height:0!important;height:auto}
+.g2 .lgt,.g2 .lgt.ph,.pg.dense .g2 .lgt,.pg.dense .g2 .lgt.ph{width:100%!important;height:auto!important;aspect-ratio:1/1;padding:6%!important;background:#fff;align-self:stretch;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .g2 .lgt.dk{background:var(--dk)}
-.g2 .lgt img,.g2 .lgt.ph img{width:auto!important;height:auto!important;max-height:90px!important;max-width:100%!important;margin:0!important;object-fit:contain}
-.g2 .lgt img[src*=lg_],.g2 .lgt img[src*=ls_]{max-height:46px!important}
-.g2 .ds{padding:10px 2px 0;justify-content:flex-start}
-.g2 .ds p{font-size:10.8px;line-height:1.42}
-.g2 .pr,.pg.dense .g2 .pr{gap:0!important}
-.pg.dense .g2 .lgt,.pg.dense .g2 .lgt.ph{height:60px;padding:5px 10px}
-.pg.dense .g2 .lgt img,.pg.dense .g2 .lgt.ph img{max-height:52px!important}
-.pg.dense .g2 .lgt img[src*=lg_],.pg.dense .g2 .lgt img[src*=ls_]{max-height:36px!important}
-.pg.dense .rows.g2{gap:8px;margin-top:8px}
-.pg.dense .g2 .ds{padding-top:6px}
-.pg.dense .g2 .ds p{font-size:10.2px;line-height:1.34}
-.pg.dense .g2 .ds .tp{display:block}
+.g2 .lgt img,.g2 .lgt.ph img,.pg.dense .g2 .lgt img,.pg.dense .g2 .lgt.ph img{width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;margin:0!important;object-fit:contain}
+.g2 .lgt img[src*=lg_],.g2 .lgt img[src*=ls_],.pg.dense .g2 .lgt img[src*=lg_],.pg.dense .g2 .lgt img[src*=ls_]{height:auto!important;width:auto!important;max-width:100%!important;max-height:42%!important}
+.g2 .lgt .nmx{font-size:11px}
+.g2 .lgt .wmk{font-size:18px}
+.g2 .ds,.pg.dense .g2 .ds{padding:9px 1px 0;justify-content:flex-start;gap:3px}
+.g2 .ds .tp,.pg.dense .g2 .ds .tp{display:block;font-size:9px;letter-spacing:.13em}
+.g2 .ds p,.pg.dense .g2 .ds p{font-size:10.4px;line-height:1.4}
+.g2 .ds .fm{font-size:10px}
+.pg.cont .hd .ttl{font-size:34px}
+.pg.cont .photos{margin-top:14px}
+.pgrid .pc:not(.intro):not(.empty){background:#fff}
 @media print{
   @page{size:A4;margin:0}
   html,body{height:auto;overflow:visible;background:#fff}
@@ -340,11 +338,11 @@ function pcell(im,t,d){return '<div class="pc"><div class="pimg">'+I(im)+'</div>
 var empt6='';for(var i=1;i<=4;i++)empt6+='<div class="pc empty"><b>Spazio '+i+'</b><span>Logo e descrizione</span></div>';
 var empt='';for(var i=1;i<=9;i++)empt+='<div class="pc empty"><b>Spazio '+i+'</b><span>Logo e descrizione</span></div>';
 P.push(pg('',head('Pitture e finiture','Pitture e finiture','Idropitture e pitture al quarzo per interni ed esterni. Per proteggere e rifinire pareti e facciate.')+
- '<div class="pgrid" style="grid-template-rows:1fr 1fr 275px"><div class="pc intro"><div class="pn">La gamma</div><div class="pd" style="margin-top:6px">Pitture murali per grandi superfici e per interni. Nuovi prodotti in arrivo.</div></div>'+
- pcell('milo_secchio.png','Pitture murali · Milo','Idropittura lavabile per interni ed esterni, professionale.')+pcell('nuvex.png','Pitture murali · Nuvex','Pittura murale per interni della linea Pitture e finiture EKOS.')+
+ '<div class="pgrid" style="grid-template-rows:1fr 1fr 275px">'+
+ pcell('milo_secchio.png','Pitture murali · Milo','Idropittura lavabile per interni ed esterni, professionale.')+pcell('nuvex.png','Pitture murali · Nuvex','Pittura murale per interni della linea Pitture e finiture EKOS.')+pcell('stucco_dolce.png','Pitture murali · Stucco dolce','Stucco in pasta per la preparazione e la finitura delle pareti.')+
  pcell('prowash.png','Pitture murali · Prowash','Idropittura superlavabile antimuffa per interni, per ambienti da vivere e da pulire spesso.')+pcell('vetrotech.png','Pitture murali · VetroTech','Idropittura anticondensa con microsfere di vetro. Confezioni da 4 e 10 litri.')+pcell('promat.png','Pitture murali · Promat','Idropittura lavabile super opaca.')+
  '<div style="grid-column:1/4;display:flex;align-items:center;justify-content:center;min-height:0">'+I('externa_banner.jpg').replace('<img','<img style="width:100%;height:auto;max-height:100%;object-fit:contain;display:block"')+'</div></div>'+
- '<div class="stk"><div class="stk-b"><div class="stk-i">'+I('stucco_dolce.png')+'</div><div><div class="pt">Stucco dolce in pasta</div><div class="pd">Stucco in pasta per la preparazione e la finitura delle pareti.</div></div></div></div>'+fol(9,'Pitture e finiture')));
+ fol(9,'Pitture e finiture')));
 /* 9 resine: pavimenti */
 P.push(pg('',head('Resine e rivestimenti','Resine per pavimenti','Resine epossidiche e metacriliche per pavimentazioni industriali e civili, esterni e riparazioni.')+
  rows([pr({n:'Epo Coat BS 300 2K',lg:'lg_epo.png',t:'Pavimenti',d:'Resina epossidica autolivellante bicomponente per pavimenti industriali e civili, trasparente e colorata, per interni ed esterni. Anche in kit A 500 g + B 300 g: ultra trasparente, lucida, senza solventi, per colate fino a 2 cm.',f:'Componente A da 5 kg · kit A 500 g + B 300 g'}),
@@ -413,7 +411,71 @@ var FB='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8.2h2.8l
 P.push(pg('bk','<div class="photo">'+I('niche.jpg')+'</div><div class="sage"></div><h1>Dal primer alla finitura</h1><p class="cp">L\'ufficio tecnico affianca progettisti e applicatori nella scelta del ciclo più adatto a ogni progetto.</p>'+
  '<div class="co"><b>Ekos srl</b><span>Sede legale: SS 115 km 266 Gela-Vittoria, 93012 Gela (CL)</span><span>P. IVA IT01357720851</span><span class="gap">Tel. +39 379 220 8055</span><span>info@ekoscoatings.it</span><span>www.ekoscoatings.it</span><span>Shop: ekoscoatings.it/shop</span><span class="soc2">'+IG+'ekos.coatings</span><span class="soc2">'+FB+'EKOS Coatings</span></div><div class="lg">'+I('logo.png')+'</div>'));
 
-P=P.map(function(h){return h.split('<div class="rows">').join('<div class="rows g2">');});
+
+function paginate(done){
+  P=P.map(function(h){return h.split('<div class="rows">').join('<div class="rows g2">');});
+  var meas=document.createElement('div');meas.style.cssText='position:absolute;left:-9999px;top:0;width:794px';document.body.appendChild(meas);
+  var out=[],map=[];
+  function tmp(h){var d=document.createElement('div');d.innerHTML=h;return d.firstChild;}
+  function limit(E){return E.getBoundingClientRect().bottom-82;}
+  function bottomOf(E){var m=0;[].slice.call(E.children).forEach(function(c){if(c.classList.contains('folio'))return;var b=c.getBoundingClientRect().bottom;if(b>m)m=b;});return m;}
+  function kids(E){return [].slice.call(E.children).filter(function(c){return !c.classList.contains('folio')&&!c.classList.contains('hd');});}
+  function process(E,first){
+    var carry=[],guard=0;
+    while(guard++<200){
+      var ks=kids(E); if(!ks.length)break;
+      var last=ks[ks.length-1];
+      var over=bottomOf(E)>limit(E)+0.5;
+      var orphan=last.classList.contains('grp');
+      if(!over&&!orphan)break;
+      if(last.classList.contains('rows')&&last.children.length>1&&!orphan){carry.unshift({c:last.lastElementChild,card:1});last.removeChild(last.lastElementChild);continue;}
+      if(ks.length===1&&!orphan)break;
+      if(last.classList.contains('rows')&&last.children.length===1){carry.unshift({c:last.firstElementChild,card:1});E.removeChild(last);continue;}
+      carry.unshift({c:last});E.removeChild(last);
+    }
+    out.push(E);
+    if(!carry.length)return;
+    var hd=E.querySelector('.hd'),N2=tmp('<section class="'+E.className.replace(/\s*cont/,'')+' cont"></section>');
+    var ey=hd.querySelector('.eyebrow').textContent.replace(/ · segue/g,''),tt=hd.querySelector('.ttl').innerHTML;
+    N2.innerHTML='<div class="hd"><div class="eyebrow">'+ey+' · segue</div><h2 class="ttl">'+tt+'</h2></div>';
+    var rows=null;
+    carry.forEach(function(it){
+      if(it.card){if(!rows){rows=document.createElement('div');rows.className='rows g2';N2.appendChild(rows);}rows.appendChild(it.c);}
+      else{rows=null;N2.appendChild(it.c);}
+    });
+    var fo=E.querySelector('.folio');if(fo)N2.appendChild(fo.cloneNode(true));
+    meas.appendChild(N2);
+    process(N2,false);
+  }
+  meas.innerHTML=P.join('');
+  var imgs=[].slice.call(meas.querySelectorAll('img'));
+  var pr=Promise.all(imgs.map(function(im){return im.complete?1:new Promise(function(r){im.onload=im.onerror=r;});}));
+  var ft=(document.fonts&&document.fonts.ready)?document.fonts.ready:Promise.resolve();
+  Promise.race([Promise.all([pr,ft]),new Promise(function(r){setTimeout(r,5000);})]).then(function(){
+    var pages=[].slice.call(meas.children);
+    function ey(E){var e=E.querySelector('.eyebrow');return e?e.textContent:'';}
+    for(var i=0;i<pages.length;i++){
+      var E=pages[i];
+      map[i]=out.length;
+      if(!E.querySelector('.rows.g2')){out.push(E);continue;}
+      while(i+1<pages.length&&pages[i+1].querySelector('.rows.g2')&&ey(pages[i+1])===ey(E)){
+        var F=pages[i+1],ph=E.querySelector('.photos');
+        if(ph)E.removeChild(ph);
+        [].slice.call(F.children).forEach(function(c){if(c.classList.contains('hd')||c.classList.contains('folio'))return;E.appendChild(c);});
+        if(ph)E.appendChild(ph);
+        var T={'Microcemento':'Primer, componenti e finiture','Resine e rivestimenti':'Resine e pavimenti drenanti'}[ey(E)];if(T)E.querySelector('.hd .ttl').textContent=T;
+        i++;map[i]=out.length;
+      }
+      process(E,true);
+    }
+    if(out.length%2){var nt=tmp(pg('','<div class="hd"><div class="eyebrow">Appunti</div><h2 class="ttl">Note</h2></div><div class="nl"></div>'+fol(0,'Note')));out.splice(out.length-1,0,nt);}
+    var R=out.map(function(E,i){var h=E.outerHTML;return h.replace(/(<div class="folio">[\s\S]*?<span>)(\d+)(<\/span><\/div>)/,function(a,b,c,d){return b+(i+1)+d;});});
+    var tocI=2;R[tocI]=R[tocI].replace(/data-goto="(\d+)"/g,function(a,x){return 'data-goto="'+map[+x]+'"';}).replace(/pag\. (\d+)/g,function(a,x){return 'pag. '+(map[+x-1]+1);});
+    P=R;document.body.removeChild(meas);done();
+  });
+}
+paginate(function(){boot();});
+function boot(){
 var N=P.length, leaves=N/2;
 var book=document.getElementById('book'), single=document.getElementById('single'), fit=document.getElementById('fit'), scaler=document.getElementById('scaler');
 var cnt=document.getElementById('count'), prev=document.getElementById('prev'), next=document.getElementById('next');
@@ -490,6 +552,8 @@ document.getElementById('stage').addEventListener('touchstart',function(e){tx=e.
 document.getElementById('stage').addEventListener('touchend',function(e){if(tx===null)return;var d=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(d)>40)go(d<0?1:-1);});
 window.addEventListener('resize',layout);
 layout();
+}
+
 })();
 </script>
 
