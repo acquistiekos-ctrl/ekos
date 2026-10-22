@@ -1,7 +1,7 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Catalogo EKOS Coatings</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400&display=swap">
 <style>
 /* Layout: libro a due pagine A4 (794x1122 px) con sfoglio 3D; pagina singola su schermi stretti; stampa piana A4. */
 :root{
@@ -232,6 +232,59 @@ body{background:var(--stage);color:var(--ui-fg);font-family:var(--f);margin:0;ov
 .pg.cont .hd .ttl{font-size:34px}
 .pg.cont .photos{margin-top:14px}
 .pgrid .pc:not(.intro):not(.empty){background:#fff}
+
+/* ====== v3: nuovo sistema grafico ====== */
+:root{--paper:#F7F6F2;--stone:#E7E5DF;--ink:#292D2B;--sage:#788675;--mid:#777A75;--line:#D9D6CC;--tile:#FFFFFF;--f:"Montserrat","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;--fs:"Cormorant Garamond",Georgia,serif}
+.pg{font-family:var(--f);font-weight:400;font-size:11.5px;line-height:1.55;padding:66px 56px 80px;letter-spacing:.005em}
+.pg::before{content:"";position:absolute;left:56px;right:56px;top:34px;height:1px;background:var(--line)}
+.pg.cov::before,.pg.bk::before{display:none}
+.pg::after{content:"EKOS COATINGS";position:absolute;left:56px;top:16px;font:600 8px/1 var(--f);letter-spacing:.34em;color:var(--ink)}
+.pg.cov::after,.pg.bk::after{display:none}
+.folio{left:56px;right:56px;bottom:28px;padding-top:11px;border-top:1px solid var(--line);font:500 8px/1 var(--f);letter-spacing:.24em;color:var(--mid);justify-content:space-between}
+.folio span:first-child{visibility:hidden}
+.folio span:last-child{color:var(--ink);font-weight:600}
+.eyebrow{font:600 8.5px/1 var(--f);letter-spacing:.32em;text-transform:uppercase;color:var(--sage)}
+.ttl{font:200 38px/1.08 var(--f);text-transform:uppercase;letter-spacing:.07em;margin-top:14px;color:var(--ink);text-wrap:balance}
+.ttl::after{content:"";display:block;width:44px;height:2px;background:var(--sage);margin-top:18px}
+.lead{margin-top:14px;max-width:520px;font:300 12px/1.65 var(--f);color:#555955}
+.grp{margin-top:24px;font:600 8.5px/1 var(--f);letter-spacing:.3em;color:var(--ink);gap:14px}
+.grp::before{display:none}
+.grp::after{content:"";flex:1;height:1px;background:var(--line)}
+/* schede prodotto */
+.rows.g2{gap:20px 14px;margin-top:14px}
+.g2 .lgt,.g2 .lgt.ph,.pg.dense .g2 .lgt,.pg.dense .g2 .lgt.ph{background:var(--tile);outline:1px solid #ECE9E1;outline-offset:-1px;padding:7%!important}
+.g2 .lgt.dk{background:var(--dk);outline:0}
+.g2 .ds,.pg.dense .g2 .ds{padding:12px 0 0;gap:0}
+.g2 .ds .tp,.pg.dense .g2 .ds .tp{font:600 7.5px/1 var(--f);letter-spacing:.26em;color:var(--sage);margin-bottom:6px}
+.g2 .ds .nm{font:500 11px/1.3 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:6px}
+.g2 .ds p,.pg.dense .g2 .ds p{font:300 10.3px/1.5 var(--f);color:#454945}
+.g2 .ds .fm{font:400 9.3px/1.4 var(--f);color:var(--mid);margin-top:7px;padding-top:6px;border-top:1px solid var(--line)}
+/* tabelle e blocchi */
+.mt th,.mt td{font-family:var(--f);background:#fff}
+.mt th{font-weight:600;letter-spacing:.18em}
+.gran,.cyc div{background:#fff}
+.cyc b,.dt dt{font-family:var(--f)}
+.toc a{padding-block:10px;border-bottom:1px solid var(--line)}
+.toc b{font:200 21px/1.2 var(--f);text-transform:uppercase;letter-spacing:.08em}
+.toc em{font:600 9px var(--f);letter-spacing:.2em;color:var(--sage)}
+.toc span{font:300 10px/1.5 var(--f);color:var(--mid)}
+/* copertina e quarta */
+.cov h1,.bk h1{font:200 52px/1.06 var(--f);text-transform:uppercase;letter-spacing:.06em}
+.cov h1{top:505px;width:660px}
+.cov .cp,.bk .cp{font:300 13px/1.7 var(--f);color:#555955}
+.cov .sub{font:500 8.5px/1.9 var(--f);letter-spacing:.3em;color:var(--ink)}
+.cov .sage{height:2px;top:470px;width:44px}
+.bk .sage{height:2px;width:44px}
+.bk .co,.bk .co b{font-family:var(--f)}
+.ap h3{font:300 16px var(--f);text-transform:uppercase;letter-spacing:.1em}
+.ap p{font:300 11px/1.6 var(--f)}
+.cqg{gap:18px 14px}
+.cqi{background:#fff;outline:1px solid #ECE9E1;outline-offset:-1px}
+.cq b{font:500 10.5px var(--f);letter-spacing:.12em}
+.cq p{font:300 10.3px/1.5 var(--f)}
+.pgrid .pc:not(.intro):not(.empty){background:#fff}
+.pc .pt{font:600 7.5px var(--f);letter-spacing:.26em;color:var(--sage)}
+.pc .pd{font:300 10.5px/1.5 var(--f)}
 @media print{
   @page{size:A4;margin:0}
   html,body{height:auto;overflow:visible;background:#fff}
@@ -261,7 +314,7 @@ function schl(s){return '';}
 /* o: n nome, lg logo, dk fondo scuro, wm wordmark html, im foto tile, t tipo, d descrizione, f formati, s scheda */
 function pr(o){
   var tile=o.lg?'<div class="lgt'+(o.dk?' dk':'')+'">'+I(o.lg)+'</div>':o.wm?'<div class="lgt">'+o.wm+'</div>':o.im?'<div class="lgt ph">'+I(o.im)+'</div>':'<div class="lgt"><span class="nmx">'+o.n+'</span></div>';
-  return '<div class="pr'+(o.big?' big':'')+'" style="'+(o.h?'min-height:'+o.h+'px':'')+'">'+tile+'<div class="ds">'+(o.t?'<span class="tp">'+o.n+' · '+o.t+'</span>':'<span class="tp">'+o.n+'</span>')+'<p>'+o.d+'</p>'+(o.f?'<span class="fm">'+o.f+'</span>':'')+schl(o.s)+'</div></div>';
+  return '<div class="pr'+(o.big?' big':'')+'" style="'+(o.h?'min-height:'+o.h+'px':'')+'">'+tile+'<div class="ds">'+(o.t?'<span class="tp">'+o.t+'</span>':'')+'<b class="nm">'+o.n+'</b><p>'+o.d+'</p>'+(o.f?'<span class="fm">'+o.f+'</span>':'')+schl(o.s)+'</div></div>';
 }
 function head(ey,t,l){return '<div class="hd"><div class="eyebrow">'+ey+'</div><h2 class="ttl">'+t+'</h2>'+(l?'<p class="lead">'+l+'</p>':'')+'</div>';}
 function grp(t){return '<div class="grp">'+t+'</div>';}
