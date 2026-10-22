@@ -198,7 +198,7 @@ body{background:var(--stage);color:var(--ui-fg);font-family:var(--f);margin:0;ov
 .lgt.ph img[src*=idrosan]{width:84px;margin:auto}
 .pg.dense .lgt.ph img[src*=ekofix_conf]{width:92px;margin:0}
 .pg.dense .lgt.ph:has(img[src*=ekofix_conf]){width:112px}
-.bkv{display:grid;grid-template-columns:410px 1fr;gap:20px;align-items:end;margin-top:6px}
+.bkv{display:grid;grid-template-columns:330px 1fr;gap:20px;align-items:end;margin-top:6px}
 .bkt{display:flex;align-items:flex-end;justify-content:space-between;gap:6px;background:#f1efe9;padding:10px 12px 6px}
 .bkt figure{margin:0;text-align:center}.bkt img{display:block;width:auto;margin:auto}
 .bkt figcaption{font-size:8px;letter-spacing:.12em;color:#4b4f4b;margin-top:3px}
@@ -226,6 +226,14 @@ body{background:var(--stage);color:var(--ui-fg);font-family:var(--f);margin:0;ov
 .g2 .lgt img[src*=lg_],.g2 .lgt img[src*=ls_]{max-height:46px!important}
 .g2 .ds{padding:10px 2px 0;justify-content:flex-start}
 .g2 .ds p{font-size:10.8px;line-height:1.42}
+.g2 .pr,.pg.dense .g2 .pr{gap:0!important}
+.pg.dense .g2 .lgt,.pg.dense .g2 .lgt.ph{height:60px;padding:5px 10px}
+.pg.dense .g2 .lgt img,.pg.dense .g2 .lgt.ph img{max-height:52px!important}
+.pg.dense .g2 .lgt img[src*=lg_],.pg.dense .g2 .lgt img[src*=ls_]{max-height:36px!important}
+.pg.dense .rows.g2{gap:8px;margin-top:8px}
+.pg.dense .g2 .ds{padding-top:6px}
+.pg.dense .g2 .ds p{font-size:10.2px;line-height:1.34}
+.pg.dense .g2 .ds .tp{display:block}
 @media print{
   @page{size:A4;margin:0}
   html,body{height:auto;overflow:visible;background:#fff}
@@ -326,7 +334,7 @@ P.push(pg('',head('Malte decorative','Malte decorative','Malte per pareti materi
  pr({n:'GeoCrete',lg:'lg_geo.png',dk:1,t:'Malte',d:'Malta tixotropica alleggerita ad alta viscosità per pareti decorative effetto roccia, per interni ed esterni. Composizione alleggerita: spessori elevati in un\'unica passata.',f:'Confezione da 15 kg · da +5 °C a +35 °C'}),
  pr({n:'Materia',lg:'lg_materia.png',t:'Malte',d:'Malta in pasta. La materia che prende forma.'})])+
  '<table class="mt"><tr><th>Microcoat</th><th>Coat BASE</th><th>Coat MEDIO</th><th>Coat FINE</th></tr><tr><td>Resa</td><td>0,900 kg/m²</td><td>0,450 kg/m²</td><td>0,250 kg/m²</td></tr><tr><td>Spessore max per strato</td><td>0,8 mm</td><td>0,5 mm</td><td>0,3 mm</td></tr><tr><td>Grana carta vetrata</td><td>40</td><td>120</td><td>220</td></tr><tr><td>Durezza Shore</td><td>55</td><td>48</td><td>43</td></tr><tr><td>Asciugatura tra le mani</td><td colspan="3">4-8 ore</td></tr></table>'+
- figs([{i:[['pantone.jpg','Microcoat nelle tinte Pantone'],['geo.jpg','GeoCrete'],['rock.jpg','GeoCrete: parete effetto roccia'],['resto.jpg','Parete Microcoat in un ristorante']],w:84},{i:[['materia_pres.jpg','Materia'],['coat.jpg','Cartella colori Microcoat']],w:80}])+fol(8,'Malte decorative')));
+ figs([{i:[['pantone.jpg','Microcoat nelle tinte Pantone'],['geo.jpg','GeoCrete'],['rock.jpg','GeoCrete: parete effetto roccia'],['resto.jpg','Parete Microcoat in un ristorante']],w:62},{i:[['materia_pres.jpg','Materia'],['coat.jpg','Cartella colori Microcoat']],w:60}])+fol(8,'Malte decorative')));
 /* 8 pitture: 2 prodotti + 9 spazi */
 function pcell(im,t,d){return '<div class="pc"><div class="pimg">'+I(im)+'</div><div class="pt">'+t+'</div><div class="pd">'+d+'</div></div>';}
 var empt6='';for(var i=1;i<=4;i++)empt6+='<div class="pc empty"><b>Spazio '+i+'</b><span>Logo e descrizione</span></div>';
@@ -358,7 +366,7 @@ P.push(pg('',head('Impermeabilizzanti','Impermeabilizzanti','Malte e guaine liqu
 /* 12 preparazione */
 P.push(pg('dense',head('Preparazione dei supporti','Preparazione dei supporti','Primer, fissativi e sgrassatori, scelti in base al fondo, assorbente o liscio: il primo passo di ogni ciclo.')+
  rows([pr(PR.pvr10),pr(PR.p15),pr(PR.p14),pr(PR.primo),pr(PR.pox2c),pr(PR.pox3c),pr(PR.ekofix),pr(PR.degrex)])+
- figs([{i:[['preparazione.jpg']],w:68}]).replace('<div class="fr" style="','<div class="fr" style="margin:0 auto;')+fol(13,'Preparazione dei supporti')));
+ figs([{i:[['preparazione.jpg']],w:54}]).replace('<div class="fr" style="','<div class="fr" style="margin:0 auto;')+fol(13,'Preparazione dei supporti')));
 /* 13 trattamento */
 P.push(pg('',head('Trattamento dei supporti','Trattamento dei supporti','Fissativi, protettivi, sgrassatori, finiture e riparazioni per trattare i supporti prima e dopo l\'applicazione.')+
  rows([pr(PR.acril),pr(PR.degrex),pr(PR.hd),pr(PR.mc50),pr(PR.repair)])+
@@ -385,7 +393,7 @@ P.push(pg('dense','<div class="hd"><div class="eyebrow">Rinforzi e protezioni</d
  grp('Tessuti in fibra di carbonio')+rows([
  pr({n:'Tessuto in fibra di carbonio 200 g/m²',im:'carbonio.jpg',t:'Tessuti di rinforzo',d:'Tessuto in vera fibra di carbonio per il rinforzo di compositi e laminati con resine epossidiche. Peso 200 g/m², filato 3K, armatura twill 2/2.',f:'Su richiesta: altezze e lunghezze'})])+
  grp('Protezione delle superfici')+rows([pr({n:'Cartone pressato in rotolo',im:'cartone.jpg',t:'Protezioni',d:'Cartone pressato per proteggere pavimenti e superfici durante pitture, posa e lavori di cantiere.',f:'Altezza 100 cm · rotolo da 45 m'}),
- pr({n:'Telo copritutto 4 × 4 m',im:'telo.jpg',t:'Protezioni',d:'Il telo 4 × 4 m è il classico telo da imbianchino e da cantiere per i piccoli lavori in casa. Leggero e comodo da stendere, copre mobili, suppellettili e arredi durante imbiancature e ristrutturazioni, proteggendoli da polvere e schizzi.',f:'Formato 4 × 4 m'})])+ grp('Contenitori')+'<div class="bkv"><div class="bkt">'+[['2,5',.46],['6',.62],['13',.82],['19',1]].map(function(v){return '<figure><img src="img/secchio_render.png" alt="" style="width:'+Math.round(v[1]*118)+'px;height:auto"><figcaption>'+v[0]+' L</figcaption></figure>';}).join('')+'</div><div class="ds"><span class="tp">Secchi vuoti · Contenitori</span><p>Secchi vuoti in plastica con coperchio, in quattro capacità, per miscelare, travasare e conservare pitture, malte e resine e per stoccare i prodotti in cantiere.</p><span class="fm">Capacità 2,5 · 6 · 13 · 19 litri</span></div></div>'+fol(16,'Reti e protezioni')));
+ pr({n:'Telo copritutto 4 × 4 m',im:'telo.jpg',t:'Protezioni',d:'Il telo 4 × 4 m è il classico telo da imbianchino e da cantiere per i piccoli lavori in casa. Leggero e comodo da stendere, copre mobili, suppellettili e arredi durante imbiancature e ristrutturazioni, proteggendoli da polvere e schizzi.',f:'Formato 4 × 4 m'})])+ grp('Contenitori')+'<div class="bkv"><div class="bkt">'+[['2,5',.46],['6',.62],['13',.82],['19',1]].map(function(v){return '<figure><img src="img/secchio_render.png" alt="" style="width:'+Math.round(v[1]*70)+'px;height:auto"><figcaption>'+v[0]+' L</figcaption></figure>';}).join('')+'</div><div class="ds"><span class="tp">Secchi vuoti · Contenitori</span><p>Secchi vuoti in plastica con coperchio, in quattro capacità, per miscelare, travasare e conservare pitture, malte e resine e per stoccare i prodotti in cantiere.</p><span class="fm">Capacità 2,5 · 6 · 13 · 19 litri</span></div></div>'+fol(16,'Reti e protezioni')));
 P.push(pg('','<div class="hd"><div class="eyebrow">Cementi e quarzi</div><h2 class="ttl" style="font-size:38px">Cementi e quarzi</h2><p class="lead">Cementi bianchi e quarzi per microcementi, malte, resine e pavimenti.</p></div>'+
  '<div class="cqg">'+cq('Cemento bianco 42.5 R','cem425.jpg','CEM II/B-L 42.5 R, cemento bianco ad alta resistenza, ideale per microcementi e malte.','Confezione da 5 kg')+cq('Cemento bianco 52.5 R','cem525.jpg','CEM II/B-L 52.5 R, cemento bianco ad alta resistenza, di qualità professionale.','Confezione da 5 kg')+cq('Quarzo sferico 0,06–0,2 mm','quarzo_006_02.jpg','Sabbia di quarzo sferico a granulometria fine.','Sacco da 25 kg')+cq('Quarzo sferico 0,1–0,3 mm','quarzo_01_03.jpg','Sabbia di quarzo sferico a granulometria media.','Sacco da 25 kg')+cq('Quarzo macinato 0,4–0,8 mm','quarzo_04_08.jpg','Sabbia di quarzo macinato a granulometria grossa.','Sacco da 25 kg')+cq('Quarzo ventilato','quarzo_ventilato.jpg','Sabbia di quarzo ventilato per resine e pavimenti.','Sacco da 20 kg')+'</div>'+
  figs([{i:[['fam_accessori.jpg','Quarzi in sacchi da 25 e 20 kg']],w:46}])+fol(17,'Cementi e quarzi')));
@@ -405,7 +413,7 @@ var FB='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8.2h2.8l
 P.push(pg('bk','<div class="photo">'+I('niche.jpg')+'</div><div class="sage"></div><h1>Dal primer alla finitura</h1><p class="cp">L\'ufficio tecnico affianca progettisti e applicatori nella scelta del ciclo più adatto a ogni progetto.</p>'+
  '<div class="co"><b>Ekos srl</b><span>Sede legale: SS 115 km 266 Gela-Vittoria, 93012 Gela (CL)</span><span>P. IVA IT01357720851</span><span class="gap">Tel. +39 379 220 8055</span><span>info@ekoscoatings.it</span><span>www.ekoscoatings.it</span><span>Shop: ekoscoatings.it/shop</span><span class="soc2">'+IG+'ekos.coatings</span><span class="soc2">'+FB+'EKOS Coatings</span></div><div class="lg">'+I('logo.png')+'</div>'));
 
-[9,11,13,14].forEach(function(i){P[i]=P[i].replace('<div class="rows">','<div class="rows g2">');});
+P=P.map(function(h){return h.split('<div class="rows">').join('<div class="rows g2">');});
 var N=P.length, leaves=N/2;
 var book=document.getElementById('book'), single=document.getElementById('single'), fit=document.getElementById('fit'), scaler=document.getElementById('scaler');
 var cnt=document.getElementById('count'), prev=document.getElementById('prev'), next=document.getElementById('next');
