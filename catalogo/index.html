@@ -303,6 +303,7 @@ body{background:var(--stage);color:var(--ui-fg);font-family:var(--f);margin:0;ov
 .rows.g2{grid-template-columns:repeat(3,minmax(0,1fr))}
 .g2 .pr,.g2 .ds{min-width:0}
 .g2 .ds .nm{letter-spacing:.09em;overflow-wrap:anywhere}
+.g2 .ds .tp,.pg.dense .g2 .ds .tp{display:none!important}
 @media print{
   @page{size:A4;margin:0}
   html,body{height:auto;overflow:visible;background:#fff}
@@ -400,8 +401,8 @@ P.push(pg('','<div class="hd"><div class="eyebrow">Microcemento</div><h2 class="
 /* 7 malte decorative */
 P.push(pg('',head('Malte decorative','Malte decorative','Malte per pareti materiche, effetto microcemento ed effetto roccia: Microcoat, GeoCrete e Materia.')+
  rows([pr({n:'Microcoat',im:'microcoat_bagno.jpg',t:'Malte',d:'Rivestimento decorativo in pasta pronto all\'uso, a base di resina acrilica e cariche minerali selezionate: superfici continue a effetto microcemento satinato, moderne e resistenti. Disponibile in tutte le tinte NCS, RAL e Pantone; conviene ordinare la tinta in un unico lotto.',f:'Applicazione a spatola in 1-2 mani · tre versioni: Coat BASE, MEDIO, FINE',s:'microcoat.pdf'}),
- pr({n:'GeoCrete',lg:'lg_geo.png',dk:1,t:'Malte',d:'Malta tixotropica alleggerita ad alta viscosità per pareti decorative effetto roccia, per interni ed esterni. Composizione alleggerita: spessori elevati in un\'unica passata.',f:'Confezione da 15 kg · da +5 °C a +35 °C'}),
- pr({n:'Materia',lg:'lg_materia.png',t:'Malte',d:'Malta in pasta. La materia che prende forma.'})])+
+ pr({n:'GeoCrete',im:'geocrete_parete.jpg',t:'Malte',d:'Malta tixotropica alleggerita ad alta viscosità per pareti decorative effetto roccia, per interni ed esterni. Composizione alleggerita: spessori elevati in un\'unica passata.',f:'Confezione da 15 kg · da +5 °C a +35 °C'}),
+ pr({n:'Materia',im:'materia_parete.jpg',t:'Malte',d:'Malta in pasta. La materia che prende forma.'})])+
  '<table class="mt"><tr><th>Microcoat</th><th>Coat BASE</th><th>Coat MEDIO</th><th>Coat FINE</th></tr><tr><td>Resa</td><td>0,900 kg/m²</td><td>0,450 kg/m²</td><td>0,250 kg/m²</td></tr><tr><td>Spessore max per strato</td><td>0,8 mm</td><td>0,5 mm</td><td>0,3 mm</td></tr><tr><td>Grana carta vetrata</td><td>40</td><td>120</td><td>220</td></tr><tr><td>Durezza Shore</td><td>55</td><td>48</td><td>43</td></tr><tr><td>Asciugatura tra le mani</td><td colspan="3">4-8 ore</td></tr></table>'+
  figs([{i:[['pantone.jpg','Microcoat nelle tinte Pantone'],['geo.jpg','GeoCrete'],['rock.jpg','GeoCrete: parete effetto roccia'],['resto.jpg','Parete Microcoat in un ristorante']],w:56},{i:[['materia_pres.jpg','Materia'],['coat.jpg','Cartella colori Microcoat']],w:52}])+fol(8,'Malte decorative')));
 /* 8 pitture: 2 prodotti + 9 spazi */
@@ -410,8 +411,8 @@ var empt6='';for(var i=1;i<=4;i++)empt6+='<div class="pc empty"><b>Spazio '+i+'<
 var empt='';for(var i=1;i<=9;i++)empt+='<div class="pc empty"><b>Spazio '+i+'</b><span>Logo e descrizione</span></div>';
 P.push(pg('',head('Pitture e finiture','Pitture e finiture','Idropitture e pitture al quarzo per interni ed esterni. Per proteggere e rifinire pareti e facciate.')+
  '<div class="pgrid" style="grid-template-rows:1fr 1fr 275px">'+
- pcell('milo_secchio.png','Pitture murali · Milo','Idropittura lavabile per interni ed esterni, professionale.')+pcell('nuvex.png','Pitture murali · Nuvex','Pittura murale per interni della linea Pitture e finiture EKOS.')+pcell('stucco_dolce.png','Pitture murali · Stucco dolce','Stucco in pasta per la preparazione e la finitura delle pareti.')+
- pcell('prowash.png','Pitture murali · Prowash','Idropittura superlavabile antimuffa per interni, per ambienti da vivere e da pulire spesso.')+pcell('vetrotech.png','Pitture murali · VetroTech','Idropittura anticondensa con microsfere di vetro. Confezioni da 4 e 10 litri.')+pcell('promat.png','Pitture murali · Promat','Idropittura lavabile super opaca.')+
+ pcell('milo_secchio.png','Milo','Idropittura lavabile per interni ed esterni, professionale.')+pcell('nuvex.png','Nuvex','Pittura murale per interni della linea Pitture e finiture EKOS.')+pcell('stucco_dolce.png','Stucco dolce','Stucco in pasta per la preparazione e la finitura delle pareti.')+
+ pcell('prowash.png','Prowash','Idropittura superlavabile antimuffa per interni, per ambienti da vivere e da pulire spesso.')+pcell('vetrotech.png','VetroTech','Idropittura anticondensa con microsfere di vetro. Confezioni da 4 e 10 litri.')+pcell('promat.png','Promat','Idropittura lavabile super opaca.')+
  '<div style="grid-column:1/4;display:flex;align-items:center;justify-content:center;min-height:0">'+I('externa_banner.jpg').replace('<img','<img style="width:100%;height:auto;max-height:100%;object-fit:contain;display:block"')+'</div></div>'+
  fol(9,'Pitture e finiture')));
 /* 9 resine: pavimenti */
