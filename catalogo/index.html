@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Catalogo EKOS Coatings</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap">
@@ -215,6 +215,17 @@ body{background:var(--stage);color:var(--ui-fg);font-family:var(--f);margin:0;ov
 /* colori microk */
 .colp{flex:1;display:flex;justify-content:center;align-items:flex-start;margin-top:6px}
 .colp img{height:900px;width:auto;display:block}
+
+/* griglia a schede */
+.rows.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.g2 .pr{flex-direction:column;gap:0;min-height:0!important;background:#fff0;height:auto}
+.g2 .lgt,.g2 .lgt.ph{width:100%!important;height:100px;padding:8px 14px;background:var(--stone);align-self:stretch;align-items:center;justify-content:center}
+.g2 .lgt.ph{padding:6px}
+.g2 .lgt.dk{background:var(--dk)}
+.g2 .lgt img,.g2 .lgt.ph img{width:auto!important;height:auto!important;max-height:90px!important;max-width:100%!important;margin:0!important;object-fit:contain}
+.g2 .lgt img[src*=lg_],.g2 .lgt img[src*=ls_]{max-height:46px!important}
+.g2 .ds{padding:10px 2px 0;justify-content:flex-start}
+.g2 .ds p{font-size:10.8px;line-height:1.42}
 @media print{
   @page{size:A4;margin:0}
   html,body{height:auto;overflow:visible;background:#fff}
@@ -394,6 +405,7 @@ var FB='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8.2h2.8l
 P.push(pg('bk','<div class="photo">'+I('niche.jpg')+'</div><div class="sage"></div><h1>Dal primer alla finitura</h1><p class="cp">L\'ufficio tecnico affianca progettisti e applicatori nella scelta del ciclo più adatto a ogni progetto.</p>'+
  '<div class="co"><b>Ekos srl</b><span>Sede legale: SS 115 km 266 Gela-Vittoria, 93012 Gela (CL)</span><span>P. IVA IT01357720851</span><span class="gap">Tel. +39 379 220 8055</span><span>info@ekoscoatings.it</span><span>www.ekoscoatings.it</span><span>Shop: ekoscoatings.it/shop</span><span class="soc2">'+IG+'ekos.coatings</span><span class="soc2">'+FB+'EKOS Coatings</span></div><div class="lg">'+I('logo.png')+'</div>'));
 
+[9,11,13,14].forEach(function(i){P[i]=P[i].replace('<div class="rows">','<div class="rows g2">');});
 var N=P.length, leaves=N/2;
 var book=document.getElementById('book'), single=document.getElementById('single'), fit=document.getElementById('fit'), scaler=document.getElementById('scaler');
 var cnt=document.getElementById('count'), prev=document.getElementById('prev'), next=document.getElementById('next');
