@@ -526,6 +526,21 @@ body.cat footer{display:none}
 /* v21 elenchi: miniature foto piu' leggibili */
 .pm.ph img{height:92px;max-width:min(260px,100%)}
 .feat2 .pg4 .pa{padding:0 22px}
+/* v22 elenchi famiglia: griglia di schede con foto grandi */
+.pg.pgl{grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+@media(max-width:1000px){.pg.pgl{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.pg.pgl{grid-template-columns:1fr;gap:16px}}
+.pg.pgl .pc{padding:0 0 22px;background:rgba(255,255,255,.62);overflow:hidden}
+.pg.pgl .pm,.pg.pgl .pm.ph{width:100%;aspect-ratio:4/3!important;justify-content:center;align-items:center;background:#fff!important;padding:7%!important;border-radius:3px 3px 0 0;transition:background .4s}
+.pg.pgl .pm.dk{background:#3a3e43!important}
+.pg.pgl .pm.ph img{height:100%;width:100%;max-width:100%;object-fit:contain;object-position:center;transition:transform .7s cubic-bezier(.2,.6,.2,1)}
+.pg.pgl .pc:hover .pm.ph img{transform:scale(1.05)}
+.pg.pgl .pm .lgi{height:auto;width:auto;max-height:46%;max-width:72%;object-position:center}
+.pg.pgl .pm .wmk{font-size:34px}
+.pg.pgl .pb{padding:20px 24px 0;display:flex;flex-direction:column}
+.pg.pgl .pb b{font-size:14px;letter-spacing:.14em;color:var(--ink);margin-bottom:8px}
+.pg.pgl .pb em{font-size:14px;line-height:1.6;-webkit-line-clamp:3;display:-webkit-box}
+.pg.pgl .pa{padding:16px 24px 0;margin-top:auto}
 
 </style>
 </head>
